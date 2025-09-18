@@ -172,7 +172,7 @@ function Stat({
 
 function FilterChip({ children }: { children: React.ReactNode }) {
   return (
-    <button className="rounded-full border border-emerald-600/20 bg-emerald-600/10 px-3 py-1.5 text-xs font-medium text-emerald-700 transition hover:bg-emerald-600/15">
+    <button className="rounded-full border border-emerald-600 bg-gray-600 px-3 py-1.5 text-xs  text-white transition hover:bg-emerald-600/15">
       {children}
     </button>
   );
