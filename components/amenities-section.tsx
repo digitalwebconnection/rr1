@@ -112,7 +112,7 @@ export default function AmenitiesAtlasPage() {
           <h3 className="text-xl font-semibold mb-2">Ready to explore the full lifestyle offering?</h3>
           <p className="text-sm text-muted-foreground mb-4">Book a visit to experience the amenities first-hand.</p>
           <button className="rounded-full bg-[color:var(--brand)] px-6 py-2 text-white hover:bg-[color:var(--brand)]/90 transition">
-            Schedule a Site Visit
+             <a href="tel:+917211161521">Schedule a Site Visit</a>
           </button>
         </div>
       </div>

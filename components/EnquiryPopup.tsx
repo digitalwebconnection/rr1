@@ -75,7 +75,7 @@ export default function EnquiryPopup() {
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-[color:var(--gold)] py-3 font-semibold bg-black text-white hover:brightness-110"
+            className="w-full rounded-lg  py-3 font-semibold bg-black text-white hover:brightness-110"
           >
             Submit Enquiry
           </button>

@@ -114,11 +114,9 @@ export default function LocationAdvantagesSection() {
           </p>
           <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4">
             <button className="rounded-full bg-[color:var(--brand)] px-6 py-3 text-white hover:bg-[color:var(--brand)]/90 transition">
-              Schedule a Site Visit
+             <a href="tel:+917211161521">Schedule a Site Visit</a>
             </button>
-            <button className="rounded-full border border-[color:var(--brand)] px-6 py-3 text-[color:var(--brand)] hover:bg-[color:var(--brand)]/5 transition">
-              View on Google Maps
-            </button>
+         
           </div>
         </div>
       </div>

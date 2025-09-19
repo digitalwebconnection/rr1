@@ -241,16 +241,7 @@ export function WhyChooseSection() {
                     <Chip icon={ShieldCheck}>Fully RERA Compliant</Chip>
                   </div>
 
-                  {/* CTAs */}
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <Button className="w-full sm:w-auto bg-[color:var(--brand)] text-white hover:brightness-110">
-                      Schedule a Site Visit
-                    </Button>
-                    <Button variant="outline" className="w-full sm:w-auto">
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      WhatsApp Us
-                    </Button>
-                  </div>
+                  
                 </CardContent>
               </Card>
             </Reveal>
