@@ -6,7 +6,7 @@ export function Footer() {
           <div>
             <div className="text-2xl font-bold mb-4"><img src="https://static.wixstatic.com/media/17b30c_dbde2f463c7c4f458435f8c914c8ceda~mv2.png/v1/fill/w_980,h_291,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RRealtors_logo%20(2).png" alt="" className="w-40" /></div>
             <p className="text-sm opacity-80 leading-relaxed">
-              Premium 2 & 3 BHK apartments in Ahmedabad with world-class amenities and prime connectivity.
+              Premium 4 & 5 BHK apartments in Ahmedabad with world-class amenities and prime connectivity.
             </p>
           </div>
 
@@ -39,9 +39,9 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-sm opacity-80">
-              <li>Phone: +91-XXXXXXXXXX</li>
-              <li>Email: info@apricus2.com</li>
-              <li>Address: Sales Office, Ahmedabad</li>
+              <li> <a href="tel:+917211161521"> Phone: +91-7211161521</a></li>
+              <li> <a href="mailto:info@realtorsstudios.com"> Email: info@realtorsstudios.com</a> </li>
+              <li>Address: Gala Gymkhana Road, South Bopal Ahmedabad</li>
             </ul>
           </div>
 

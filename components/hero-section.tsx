@@ -5,9 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 /* ------------------ Brand & Data ------------------ */
 const LOGO_URL = "/logo-rrealtor.png";
 
-const headlines = [
-  "Luxury 4 & 5 BHK Apartments in South Bopal Ahmedabad",
-];
+
 
 const bgImages = [
   "https://urbtechindia.com/wp-content/uploads/2020/09/Amenities-for-Modern-Real-Estate-Projects.jpg",
@@ -19,11 +17,7 @@ export function Hero() {
   const [headlineIndex, setHeadlineIndex] = useState(0);
   const [bgIndex, setBgIndex] = useState(0);
 
-  // headline slider
-  useEffect(() => {
-    const t1 = setInterval(() => setHeadlineIndex((p) => (p + 1) % headlines.length), 3000);
-    return () => clearInterval(t1);
-  }, []);
+  
 
   // background slideshow (5s)
   useEffect(() => {
@@ -110,6 +104,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
+      id="home"
       className="relative py-24 flex items-center justify-center text-center overflow-hidden"
       style={{
         ["--brand" as any]: "#6b4a3a",
@@ -234,7 +229,7 @@ export function Hero() {
         </div>
 
         {/* Staggered headline reveal */}
-        <StaggeredHeadline text={headlines[headlineIndex]} />
+        <h1 className="text-3xl md:text-5xl text-white font-bold">Luxury 4 & 5 BHK Apartments in South Bopal Ahmedabad</h1>
 
         <p className="mt-4 text-lg md:text-2xl text-[color:var(--cream)]/85 animate-fade-in-up max-w-7xl mx-auto">
         Live in spacious homes with stunning views and top-class lifestyle. A prime location offering comfort, style, and privacy.
@@ -265,25 +260,7 @@ export function Hero() {
 }
 
 /* ===== Staggered Headline ===== */
-function StaggeredHeadline({ text }: { text: string }) {
-  return (
-    <h1
-      key={text} // remount to re-run animation on change
-      className="text-3xl md:text-5xl max-w-4xl mx-auto font-extrabold text-[color:var(--cream)] drop-shadow-lg leading-tight"
-      aria-label={text}
-    >
-      {text.split("").map((ch, i) => (
-        <span
-          key={i}
-          className="inline-block animate-pop"
-          style={{ animationDelay: `${i * 15}ms` }}
-        >
-          {ch === " " ? "\u00A0" : ch}
-        </span>
-      ))}
-    </h1>
-  );
-}
+
 
 /* ------------------ Animations & Mount ------------------ */
 function StyleMount() {

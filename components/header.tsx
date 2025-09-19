@@ -6,7 +6,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex h-16 items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="text-2xl font-bold text-primary"><img src="https://static.wixstatic.com/media/17b30c_dbde2f463c7c4f458435f8c914c8ceda~mv2.png/v1/fill/w_980,h_291,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RRealtors_logo%20(2).png" alt="" className="w-40" /></div>
+          <div className="text-2xl font-bold text-primary" ><a href="#home"><img src="https://static.wixstatic.com/media/17b30c_dbde2f463c7c4f458435f8c914c8ceda~mv2.png/v1/fill/w_980,h_291,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RRealtors_logo%20(2).png" alt="" className="w-40" /></a></div>
         </div>
 
         <nav className="hidden md:flex items-center space-x-6">
@@ -30,7 +30,7 @@ export function Header() {
         <div className="flex items-center space-x-4">
           <Button variant="outline" size="sm" className="hidden sm:flex bg-transparent">
             <Phone className="h-4 w-4 mr-2" />
-            Call Now
+          <a href="tel:+917211161521">Call Now</a>  
           </Button>
           <Button size="sm">Book Site Visit</Button>
         </div>

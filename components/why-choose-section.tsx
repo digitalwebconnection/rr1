@@ -81,8 +81,8 @@ const PRIVILEGES = [
 
 const PLAN_DATA = {
   "4BHK": {
-    area: "2250–2500 sq.ft*",
-    priceFrom: "₹1.49 Cr*",
+    area: "3545 sq.ft*",
+    priceFrom: "₹2.23 CR (All Inclusive) *",
     maintenance: "Premium society-managed",
     keypoints: [
       "Private foyers for exclusive luxury homes in South Bopal.",
@@ -90,11 +90,11 @@ const PLAN_DATA = {
       "Corner units with city views",
     ],
     image:
-      "https://images.unsplash.com/photo-1565182999561-18d7dc61f4d8?auto=format&fit=crop&w=1600&q=80",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmxFgLfdGhwnfxHseDBwQ-rdA23XDvKcoPg&s",
   },
   "5BHK": {
-    area: "2850–3200 sq.ft*",
-    priceFrom: "₹1.99 Cr*",
+    area: "3545 sq.ft*",
+    priceFrom: "₹2.23 CR (All Inclusive)*",
     maintenance: "Luxury-tier services included",
     keypoints: [
       "RERA-approved project offering safe and secure investment.",
@@ -186,12 +186,9 @@ export function WhyChooseSection() {
                     className="w-full bg-[color:var(--brand)] text-white sm:flex-1 hover:brightness-110"
                   >
                     <Phone className="mr-2 h-4 w-4" />
-                    Request a Call Back
+                    <a href="tel:+917211161521">Request a Call Back</a>
                   </Button>
-                  <Button size="lg" variant="outline" className="w-full sm:flex-1">
-                    <FileDown className="mr-2 h-4 w-4" />
-                    Download Brochure
-                  </Button>
+               
                 </div>
               </Reveal>
             </div>
@@ -221,7 +218,7 @@ export function WhyChooseSection() {
 
                   {/* Stats */}
                   <div className="grid gap-4 sm:grid-cols-3">
-                    <StatItem icon={Ruler} label="Carpet Area" value={PLAN_DATA[plan].area} />
+                    <StatItem icon={Ruler} label="Carpet Area Starting  At" value={PLAN_DATA[plan].area} />
                     <StatItem icon={Wallet} label="Starting Price" value={PLAN_DATA[plan].priceFrom} />
                     <StatItem icon={LayoutGrid} label="Maintenance" value={PLAN_DATA[plan].maintenance} />
                   </div>

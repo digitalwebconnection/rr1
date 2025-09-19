@@ -41,14 +41,14 @@ const projectInfo = [
 const configurations = [
   {
     type: "4 BHK",
-    area: "2,800+ sq.ft",
-    price: "Starting from ₹2.8 Cr",
+    area: "3545+ sq.ft",
+    price: "Starting from ₹2.23 CR (All Inclusive)",
     highlights: ["Ideal for joint families", "Balconies with skyline views", "Smart layouts for privacy"],
   },
   {
     type: "5 BHK",
-    area: "3,400+ sq.ft",
-    price: "Starting from ₹3.6 Cr",
+    area: "3545+ sq.ft",
+    price: "Starting from ₹2.23 CR (All Inclusive)",
     highlights: ["Extra lounge/family room", "Dual terrace options", "Penthouse-grade finishes"],
   },
   {
@@ -135,12 +135,9 @@ export default function InvestmentSection () {
           <div className="mt-4 flex flex-col sm:flex-row justify-center gap-3">
             <Button className="bg-[color:var(--brand)] text-white hover:brightness-110">
               <Phone className="mr-2 h-4 w-4" />
-              Book a Private Visit
+             <a href="tel:+917211161521">Request a Call Back</a>
             </Button>
-            <Button variant="outline" className="border border-[color:var(--brand)]">
-              <FileDown className="mr-2 h-4 w-4" />
-              Download Brochure
-            </Button>
+        
           </div>
         </div>
       </div>

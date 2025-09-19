@@ -329,7 +329,7 @@ function CtaStrip() {
             <h4 className="text-xl font-semibold">Book a Site Visit & Feel the Difference</h4>
           </div>
           <a
-            href="#enquire"
+            href="tel:+917211161521"
             className="rounded-full bg-[color:var(--gold)] px-6 py-3 text-[color:var(--brand)] font-semibold shadow-md transition hover:brightness-105"
           >
             Enquire Now

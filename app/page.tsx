@@ -10,6 +10,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import EnquiryPopup from "@/components/EnquiryPopup"
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <FAQSection />
       <CTASection />
       <Footer />
+      <EnquiryPopup/>
     </main>
   )
 }

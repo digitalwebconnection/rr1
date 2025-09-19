@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "What are the sizes for 4 & 5 BHK units?",
     answer:
-      " 4 BHK – 2,800+ sq.ft | 5 BHK – 3,400+ sq.ft.",
+      " 4 BHK – 3545+ sq.ft | 5 BHK – 3545+ sq.ft.",
   },
   {
     question: "Are these luxury flats near SG Highway RERA-approved?",

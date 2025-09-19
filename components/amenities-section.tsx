@@ -60,6 +60,7 @@ export default function AmenitiesAtlasPage() {
   return (
     <section
       className="bg-white py-20 text-[color:var(--brand)]"
+      id="amenities"
       style={{
         ["--brand" as any]: "#664632",
         ["--gold" as any]: "#d6b47f",

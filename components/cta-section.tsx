@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -19,11 +20,7 @@ export function CTASection() {
     >
       {/* ==== Background stack (distinct from other sections) ==== */}
       {/* 1) Brand gradient */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-50 bg-black/70"
-       
-      />
+      <div aria-hidden className="absolute inset-0 -z-50 bg-black/70" />
       {/* 2) Soft grid masked top+bottom */}
       <div
         aria-hidden
@@ -45,9 +42,7 @@ export function CTASection() {
         {Array.from({ length: 6 }).map((_, i) => (
           <span
             key={i}
-            className={`absolute rounded-full blur-3xl ${
-              i % 2 ? "cta-blob-rev" : "cta-blob"
-            }`}
+            className={`absolute rounded-full blur-3xl ${i % 2 ? "cta-blob-rev" : "cta-blob"}`}
             style={{
               top: `${(i * 17) % 90}%`,
               left: `${(i * 23) % 90}%`,
@@ -100,37 +95,34 @@ export function CTASection() {
 
           {/* trust strip */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-white/80">
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">
-              RERA Compliant
-            </span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">
-              4.9★ Rated by Homeowners
-            </span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">
-              120+ Site Visits Last Week
-            </span>
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">RERA Compliant</span>
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">4.9★ Rated by Homeowners</span>
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">120+ Site Visits Last Week</span>
           </div>
         </div>
 
-        {/* ===== Contact cards (new layout with tilt & light sweep) ===== */}
+        {/* ===== Contact cards (now fully clickable) ===== */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <ContactCard
             icon={<Phone className="h-8 w-8" />}
             title="Call Us"
             line="+91-7211161521"
+            href="tel:+917211161521"
+            ariaLabel="Call +91-7211161521"
           />
           <ContactCard
             icon={<Mail className="h-8 w-8" />}
             title="Email Us"
-            line="info@apricus2.com"
+            line="info@realtorsstudios.com"
+            href="mailto:info@realtorsstudios.com"
+            ariaLabel="Email info@realtorsstudios.com"
           />
           <ContactCard
             icon={<MapPin className="h-8 w-8" />}
             title="Visit Us"
-            line="Sales Office, Ahmedabad"
+            line="Gala Gymkhana Road, South Bopal Ahmedabad"
           />
         </div>
-
       </div>
 
       <CTACSS />
@@ -140,16 +132,16 @@ export function CTASection() {
 
 /* ============ Pieces ============ */
 
-function ContactCard({
-  icon,
-  title,
-  line,
-}: {
+type ContactCardProps = {
   icon: React.ReactNode;
   title: string;
   line: string;
-}) {
-  return (
+  href?: string; // makes the whole card clickable
+  ariaLabel?: string;
+};
+
+function ContactCard({ icon, title, line, href, ariaLabel }: ContactCardProps) {
+  const CardInner = (
     <div
       className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,.6)] backdrop-blur transition-transform duration-300 hover:-translate-y-1"
       onMouseMove={(e) => handleTilt(e)}
@@ -164,12 +156,24 @@ function ContactCard({
       <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,.25)_45%,transparent_65%)] opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
     </div>
   );
+
+  return href ? (
+    <a
+      href={href}
+      aria-label={ariaLabel}
+      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/60"
+    >
+      {CardInner}
+    </a>
+  ) : (
+    CardInner
+  );
 }
 
 /* ============ Tiny helpers + CSS ============ */
 
 function handleTilt(e: React.MouseEvent<HTMLElement>) {
-  const el = e.currentTarget;
+  const el = e.currentTarget as HTMLElement;
   const rect = el.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
@@ -178,7 +182,7 @@ function handleTilt(e: React.MouseEvent<HTMLElement>) {
   el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
 }
 function resetTilt(e: React.MouseEvent<HTMLElement>) {
-  e.currentTarget.style.transform = "perspective(900px) rotateX(0) rotateY(0) translateZ(0)";
+  (e.currentTarget as HTMLElement).style.transform = "perspective(900px) rotateX(0) rotateY(0) translateZ(0)";
 }
 
 function CTACSS() {
