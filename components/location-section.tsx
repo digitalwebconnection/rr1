@@ -1,72 +1,142 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { MapPin, Clock, School, ShoppingBag, Hospital, Building } from "lucide-react"
+"use client";
 
-const locationFeatures = [
-  { icon: Clock, title: "10 min", description: "SG Highway & SP Ring Road" },
-  { icon: School, title: "Nearby Schools", description: "Top CBSE & IB institutions" },
-  { icon: ShoppingBag, title: "Shopping & Dining", description: "Malls, multiplexes & restaurants" },
-  { icon: Hospital, title: "Healthcare", description: "Multi-specialty hospitals within 15 min" },
-  { icon: Building, title: "IT & Business Hubs", description: "Seamless commute for professionals" },
-]
+import { useEffect } from "react";
+import {
+  MapPin,
+  School,
+  Hospital,
+  ShoppingBag,
+  Building2,
+  Plane,
+  Sparkles,
+} from "lucide-react";
 
-export function LocationSection() {
+/* ------------------ Location Data ------------------ */
+const LOCATION_ADVANTAGES = [
+  {
+    icon: MapPin,
+    title: "Near SG Highway & SP Ring Road",
+    desc: "Strategically located for fast access across Ahmedabad.",
+  },
+  {
+    icon: School,
+    title: "Top-Rated Schools Nearby",
+    desc: "Close to DPS, Shanti Asiatic, Eklavya and other institutions.",
+  },
+  {
+    icon: Hospital,
+    title: "Healthcare in Minutes",
+    desc: "Zydus, Sterling, SAL & multi-specialty clinics nearby.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Malls & Retail Destinations",
+    desc: "One Mall, Gulmohar Park, Cinepolis just a short drive away.",
+  },
+  {
+    icon: Building2,
+    title: "Proximity to IT & Business Zones",
+    desc: "Easy commute to GIFT City and emerging corporate parks.",
+  },
+  {
+    icon: Plane,
+    title: "Airport in 25 Minutes",
+    desc: "Direct route to Sardar Vallabhbhai Patel International Airport.",
+  },
+];
+
+/* ------------------ Component ------------------ */
+export default function LocationAdvantagesSection() {
   return (
-    <section id="location" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="location"
+      className="relative bg-white py-24"
+      style={{
+        ["--brand" as any]: "#664632",
+        ["--gold" as any]: "#d6b47f",
+      }}
+    >
+      <SectionStyles />
+
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Location Advantages</h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto text-balance">
-            Situated in Ahmedabad's thriving zone, rrealtor Studio connects you to everything that matters
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--brand)]/10 px-5 py-1 text-sm font-medium text-[color:var(--brand)]">
+            <Sparkles className="h-4 w-4" />
+            South Bopal • Ahmedabad
+          </span>
+          <h2 className="text-4xl font-bold">Live Where Everything Connects</h2>
+          <p className="mt-3 max-w-xl mx-auto text-lg text-muted-foreground">
+            Prime location. Premium lifestyle. South Bopal puts the city at your doorstep.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-          {locationFeatures.map((feature, index) => (
-            <Card key={index} className="text-center">
-              <CardContent className="p-6">
-                <feature.icon className="h-10 w-10  text-accent mx-auto mb-4" />
-                <h3 className="font-bold text-[#664632] mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="bg-card rounded-lg p-8">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-4">Strategic Location Benefits</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>Direct connectivity to major business districts</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>Proximity to educational institutions and healthcare</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>Easy access to entertainment and shopping centers</span>
-                </li>
-              </ul>
+        {/* Visual + Feature Layout */}
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Left Visual / Map Placeholder */}
+          <div className="lg:col-span-5">
+            <div className="overflow-hidden rounded-2xl border border-[color:var(--brand)]/10 shadow-sm">
+              <img
+                src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80"
+                alt="South Bopal Map"
+                className="h-full w-full object-cover"
+              />
             </div>
-            <div className="flex-1">
-              <div className="bg-muted rounded-lg p-6 h-64 flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="h-16 w-16 mx-auto mb-4" />
-                  <p>Interactive Location Map</p>
+          </div>
+
+          {/* Right Features */}
+          <div className="lg:col-span-7">
+            <div className="grid sm:grid-cols-2 gap-6">
+              {LOCATION_ADVANTAGES.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group relative flex gap-4 rounded-xl border border-[color:var(--brand)]/15 bg-white p-5 shadow-sm hover:shadow-md transition"
+                >
+                  <div className="h-11 w-11 grid place-items-center rounded-lg bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-[color:var(--brand)]">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[color:var(--gold)]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="text-center mt-8 ">
-          <Button size="lg" className="bg-[#664632]">Get Directions</Button>
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl font-semibold">Visit The Masterpiece in South Bopal</h3>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Schedule your site tour and discover what elevated living feels like.
+          </p>
+          <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <button className="rounded-full bg-[color:var(--brand)] px-6 py-3 text-white hover:bg-[color:var(--brand)]/90 transition">
+              Schedule a Site Visit
+            </button>
+            <button className="rounded-full border border-[color:var(--brand)] px-6 py-3 text-[color:var(--brand)] hover:bg-[color:var(--brand)]/5 transition">
+              View on Google Maps
+            </button>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
+}
+
+/* ------------------ Styles ------------------ */
+function SectionStyles() {
+  useEffect(() => {
+    const css = `
+      @keyframes fadeUp { 0% { opacity: 0; transform: translateY(6px) } 100% { opacity: 1; transform: none } }
+      .fade-up { animation: fadeUp .5s ease-out both }
+    `;
+    const tag = document.createElement("style");
+    tag.innerHTML = css;
+    document.head.appendChild(tag);
+    return () => tag.remove();
+  }, []);
+  return null;
 }

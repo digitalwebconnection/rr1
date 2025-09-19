@@ -1,58 +1,212 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, MapPin } from "lucide-react"
+"use client";
+
+import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="py-20 bg-[#664632] text-primary-foreground">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">🏡 Ready to Upgrade Your Lifestyle?</h2>
-          <p className="text-xl mb-8 text-balance opacity-90">
-            Book your site visit today & step into a spacious future
+    <section
+      className="relative py-20 text-white"
+      style={
+        {
+          ["--brand" as any]: "#664632",
+          ["--gold" as any]: "#d6b47f",
+          ["--paper" as any]: "#f6efe8",
+        } as React.CSSProperties
+      }
+    >
+      {/* ==== Background stack (distinct from other sections) ==== */}
+      {/* 1) Brand gradient */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-50 bg-black/70"
+       
+      />
+      {/* 2) Soft grid masked top+bottom */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-40 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "radial-gradient(1200px 300px at 50% 10%, black, transparent 70%), radial-gradient(1200px 300px at 50% 90%, black, transparent 70%)",
+        } as any}
+      />
+      {/* 3) Gold shimmer sweep */}
+      <div className="pointer-events-none absolute inset-0 -z-30 overflow-hidden">
+        <span className="cta-shimmer absolute -left-1/3 top-0 h-[160%] w-1/2 rotate-[18deg] bg-[linear-gradient(90deg,transparent,rgba(214,180,127,0.15),transparent)]" />
+      </div>
+      {/* 4) Floating bokeh orbs */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-30 mix-blend-screen">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <span
+            key={i}
+            className={`absolute rounded-full blur-3xl ${
+              i % 2 ? "cta-blob-rev" : "cta-blob"
+            }`}
+            style={{
+              top: `${(i * 17) % 90}%`,
+              left: `${(i * 23) % 90}%`,
+              width: 180 + ((i * 29) % 120),
+              height: 180 + ((i * 29) % 120),
+              opacity: 0.08 + ((i % 4) * 0.03),
+              background:
+                "radial-gradient(closest-side, rgba(214,180,127,0.45), rgba(214,180,127,0.0) 60%)",
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
+        {/* ===== Header + primary actions ===== */}
+        <div className="mx-auto mb-12 max-w-7xl text-center">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/40 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur">
+            Final Call-to-Action
+          </span>
+          <h2 className="text-balance text-3xl  font-extrabold md:text-4xl">
+            Upgrade your lifestyle with luxury 4 & 5 BHK apartments in South Bopal Ahmedabad.
+          </h2>
+          <p className="text-balance mx-auto mt-3 text-xl opacity-90">
+            Own premium apartments in South Bopal with skyline views today.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-              Enquire Now
-            </Button>
+          <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+              className="group relative overflow-hidden bg-[color:var(--gold)] px-8 py-6 text-black hover:brightness-110"
             >
-              <Phone className="h-5 w-5 mr-2" />
-              Call: +91-XXXXXXXXXX
+              <span className="relative z-10 text-lg">Enquire Now</span>
+              {/* subtle gloss */}
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,.55)_45%,transparent_65%)] opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
+              {/* pulse ring */}
+              <span className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-white/0 cta-pulse" />
             </Button>
+
+            <a href="tel:+917211161521">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/70 bg-white/5 px-8 py-6 text-lg text-white backdrop-blur hover:bg-white hover:text-[color:var(--brand)]"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Call: +91-7211161521
+              </Button>
+            </a>
+          </div>
+
+          {/* trust strip */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-white/80">
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">
+              RERA Compliant
+            </span>
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">
+              4.9★ Rated by Homeowners
+            </span>
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">
+              120+ Site Visits Last Week
+            </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Card className="bg-primary-foreground/50 border-primary-foreground/70">
-            <CardContent className="p-6 text-center">
-              <Phone className="h-8 w-8 mx-auto mb-3 text-accent" />
-              <h3 className="font-semibold mb-2">Call Us</h3>
-              <p className="text-sm opacity-90">+91-XXXXXXXXXX</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-primary-foreground/50 border-primary-foreground/70">
-            <CardContent className="p-6 text-center">
-              <Mail className="h-8 w-8 mx-auto mb-3 text-accent" />
-              <h3 className="font-semibold mb-2">Email Us</h3>
-              <p className="text-sm opacity-90">info@apricus2.com</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-primary-foreground/50 border-primary-foreground/70">
-            <CardContent className="p-6 text-center">
-              <MapPin className="h-8 w-8 mx-auto mb-3 text-accent" />
-              <h3 className="font-semibold mb-2">Visit Us</h3>
-              <p className="text-sm opacity-90">Sales Office, Ahmedabad</p>
-            </CardContent>
-          </Card>
+        {/* ===== Contact cards (new layout with tilt & light sweep) ===== */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <ContactCard
+            icon={<Phone className="h-8 w-8" />}
+            title="Call Us"
+            line="+91-7211161521"
+          />
+          <ContactCard
+            icon={<Mail className="h-8 w-8" />}
+            title="Email Us"
+            line="info@apricus2.com"
+          />
+          <ContactCard
+            icon={<MapPin className="h-8 w-8" />}
+            title="Visit Us"
+            line="Sales Office, Ahmedabad"
+          />
         </div>
+
       </div>
+
+      <CTACSS />
     </section>
-  )
+  );
+}
+
+/* ============ Pieces ============ */
+
+function ContactCard({
+  icon,
+  title,
+  line,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  line: string;
+}) {
+  return (
+    <div
+      className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-6 shadow-[0_10px_40px_-15px_rgba(0,0,0,.6)] backdrop-blur transition-transform duration-300 hover:-translate-y-1"
+      onMouseMove={(e) => handleTilt(e)}
+      onMouseLeave={(e) => resetTilt(e)}
+    >
+      <div className="mb-3 grid h-12 w-12 place-items-center rounded-xl bg-white/10 text-white ring-1 ring-white/20">
+        {icon}
+      </div>
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="mt-1 text-sm opacity-90">{line}</p>
+      {/* light sweep */}
+      <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,.25)_45%,transparent_65%)] opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
+    </div>
+  );
+}
+
+/* ============ Tiny helpers + CSS ============ */
+
+function handleTilt(e: React.MouseEvent<HTMLElement>) {
+  const el = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const rx = ((y / rect.height) - 0.5) * -3.5; // tilt range
+  const ry = ((x / rect.width) - 0.5) * 3.5;
+  el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+}
+function resetTilt(e: React.MouseEvent<HTMLElement>) {
+  e.currentTarget.style.transform = "perspective(900px) rotateX(0) rotateY(0) translateZ(0)";
+}
+
+function CTACSS() {
+  useEffect(() => {
+    const css = `
+/* shimmer sweep */
+@keyframes cta-shimmer-move { 0% { transform: translateX(-120%) rotate(18deg) } 100% { transform: translateX(120%) rotate(18deg) } }
+.cta-shimmer { animation: cta-shimmer-move 8s linear infinite }
+
+/* floating orbs */
+@keyframes cta-drift { 0%,100% { transform: translateX(-3%) scale(1); opacity:.8 } 50% { transform: translateX(3%) scale(1.03); opacity:.95 } }
+@keyframes cta-drift-rev { 0%,100% { transform: translateX(3%) scale(1); opacity:.75 } 50% { transform: translateX(-3%) scale(1.02); opacity:.9 } }
+.cta-blob { animation: cta-drift 16s ease-in-out infinite }
+.cta-blob-rev { animation: cta-drift-rev 18s ease-in-out infinite }
+
+/* soft pulse ring on primary button */
+@keyframes cta-pulse-kf { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,.35) } 70% { box-shadow: 0 0 0 14px rgba(255,255,255,0) } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0) } }
+.cta-pulse { animation: cta-pulse-kf 2.4s ease-out infinite }
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .cta-shimmer, .cta-blob, .cta-blob-rev, .cta-pulse { animation: none }
+}
+`;
+    const tag = document.createElement("style");
+    tag.innerHTML = css;
+    document.head.appendChild(tag);
+    return () => tag.remove();
+  }, []);
+  return null;
 }

@@ -2,33 +2,24 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "Is the project RERA approved?",
-    answer: "Yes, rrealtor Studio is fully RERA-approved for complete peace of mind and transparency.",
+    question: "When is possession for these luxury apartments in South Bopal?",
+    answer: " Possession expected by December 2026 with timely construction updates.",
   },
   {
-    question: "What is the starting price?",
-    answer: "2 BHK apartments start at ₹49.9 Lakhs* (Terms & Conditions apply). 3 BHK pricing is available on request.",
+    question: "Are home loans available for premium apartments in Ahmedabad?",
+    answer: "Yes, leading banks offer home loan support for buyers.",
   },
   {
-    question: "Are there easy EMI options?",
+    question: "What are the sizes for 4 & 5 BHK units?",
     answer:
-      "Yes, we have tie-ups with leading banks to ensure hassle-free financing with competitive interest rates and flexible tenure options.",
+      " 4 BHK – 2,800+ sq.ft | 5 BHK – 3,400+ sq.ft.",
   },
   {
-    question: "What is the possession timeline?",
+    question: "Are these luxury flats near SG Highway RERA-approved?",
     answer:
-      "The project is under construction with expected possession by December 2025. Regular updates are provided to all buyers.",
+      "Yes, The Masterpiece is a fully RERA-approved development.",
   },
-  {
-    question: "What amenities are included?",
-    answer:
-      "rrealtor Studio offers 25+ premium amenities including swimming pool, gym, clubhouse, landscaped gardens, children's play area, and 24x7 security.",
-  },
-  {
-    question: "Is parking included?",
-    answer:
-      "Yes, each apartment comes with dedicated parking space. Additional parking slots are available for purchase.",
-  },
+
 ]
 
 export function FAQSection() {

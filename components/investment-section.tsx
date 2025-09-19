@@ -1,57 +1,147 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, TrendingUp, Shield, Award } from "lucide-react"
+"use client"
 
-const benefits = [
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import {
+  Home,
+  Ruler,
+  Wallet,
+  Building2,
+  ShieldCheck,
+  Flower,
+  Landmark,
+  Phone,
+  FileDown,
+} from "lucide-react"
+
+/* ------------------ Data ------------------ */
+const projectInfo = [
   {
-    icon: TrendingUp,
-    title: "Move to Spacious Living",
-    description: "From cramped flats to spacious, well-ventilated homes with modern amenities",
+    icon: Home,
+    title: "Luxury 4 & 5 BHK Apartments",
+    description: "Crafted for families who value comfort, lifestyle, and exclusivity.",
   },
   {
-    icon: Shield,
-    title: "Safe Gated Community",
-    description: "CCTV surveillance & access control for complete peace of mind",
+    icon: Landmark,
+    title: "Located in South Bopal",
+    description: "Premium skyline views in one of Ahmedabad's most coveted neighborhoods.",
   },
   {
-    icon: TrendingUp,
-    title: "Strong Investment Potential",
-    description: "High rental demand & appreciation potential in growing corridor",
+    icon: Flower,
+    title: "World-Class Amenities",
+    description: "Landscaped greens, clubhouse, gym, pool, and wellness zones.",
   },
   {
-    icon: Award,
-    title: "Trusted Builder",
-    description: "Proven track record with transparent documentation and timely delivery",
+    icon: ShieldCheck,
+    title: "Safe & Transparent Investment",
+    description: "RERA-approved with flexible EMIs and investor-friendly offers.",
   },
 ]
 
-export function InvestmentSection() {
+const configurations = [
+  {
+    type: "4 BHK",
+    area: "2,800+ sq.ft",
+    price: "Starting from ₹2.8 Cr",
+    highlights: ["Ideal for joint families", "Balconies with skyline views", "Smart layouts for privacy"],
+  },
+  {
+    type: "5 BHK",
+    area: "3,400+ sq.ft",
+    price: "Starting from ₹3.6 Cr",
+    highlights: ["Extra lounge/family room", "Dual terrace options", "Penthouse-grade finishes"],
+  },
+  {
+    type: "Penthouse",
+    area: "Private Terraces",
+    price: "Price on Request",
+    highlights: ["Top-floor exclusivity", "Skyline-facing deck", "Ultra-luxury fit-outs"],
+  },
+]
+
+/* ------------------ Component ------------------ */
+export default function InvestmentSection () {
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Why Invest in rrealtor Studio?</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            More than just a home - it's a smart investment in your future
+    <section
+      className="bg-white py-20"
+      style={{
+        ["--brand" as any]: "#6b4a3a",
+        ["--gold" as any]: "#d6b47f",
+      }}
+    >
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Section Header */}
+        <div className="mb-12 text-center">
+          <span className="mb-3 inline-block rounded-full bg-[color:var(--brand)]/10 px-4 py-1 text-sm font-semibold text-[color:var(--brand)]">
+            About the Project
+          </span>
+          <h2 className="text-3xl font-bold md:text-4xl">The Masterpiece, South Bopal</h2>
+          <p className="mt-2 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Premium 4 & 5 BHK residences designed for luxurious living in Ahmedabad.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {benefits.map((benefit, index) => (
-            <Card key={index} className="border-0 shadow-sm">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {projectInfo.map((item, i) => (
+            <Card
+              key={i}
+              className="border border-[color:var(--brand)]/15 bg-white shadow-sm hover:shadow-md transition duration-300"
+            >
               <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <CheckCircle className="h-6 w-6 text-primary" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-10 w-10 grid place-items-center rounded-lg bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
+                    <item.icon className="h-5 w-5" />
                   </div>
-                  <div>
-                    <benefit.icon className="h-8 w-8 text-accent mb-3" />
-                    <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
-                  </div>
+                  <h3 className="text-base font-semibold">{item.title}</h3>
                 </div>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Configurations Grid */}
+        <div className="mb-16">
+          <h3 className="text-xl font-semibold mb-4 text-center">Apartment Configurations & Pricing</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {configurations.map((cfg, i) => (
+              <Card
+                key={cfg.type + i}
+                className="border border-[color:var(--brand)]/15 bg-[color:var(--brand)]/[.03] shadow-sm hover:shadow-md transition duration-300"
+              >
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-bold text-[color:var(--brand)] mb-1">{cfg.type}</h4>
+                  <div className="text-sm text-muted-foreground mb-2">
+                    {cfg.area} • {cfg.price}
+                  </div>
+                  <ul className="text-sm list-disc list-inside space-y-1 text-black/90">
+                    {cfg.highlights.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Strip */}
+        <div className="rounded-2xl border border-[color:var(--brand)]/15 bg-[color:var(--brand)]/[.06] p-6 text-center shadow-sm">
+          <h3 className="text-xl font-semibold">Explore floor plans, pricing, and offers</h3>
+          <p className="mx-auto mt-1 max-w-xl text-sm text-muted-foreground">
+            Schedule a private site visit or request a personalized investment brochure.
+          </p>
+          <div className="mt-4 flex flex-col sm:flex-row justify-center gap-3">
+            <Button className="bg-[color:var(--brand)] text-white hover:brightness-110">
+              <Phone className="mr-2 h-4 w-4" />
+              Book a Private Visit
+            </Button>
+            <Button variant="outline" className="border border-[color:var(--brand)]">
+              <FileDown className="mr-2 h-4 w-4" />
+              Download Brochure
+            </Button>
+          </div>
         </div>
       </div>
     </section>
