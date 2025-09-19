@@ -1,18 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Dumbbell,
-  Waves,
   Baby,
-  Gamepad2,
   Theater,
-  Users,
   ShieldCheck,
-  Camera,
   TreePine,
-  Footprints,
 } from "lucide-react";
+import EnquiryPopup from "@/components/EnquiryPopup"; // import your popup
 
 /* ------------------ Types & Data ------------------ */
 type Category = {
@@ -57,6 +53,8 @@ const AMENITY_CATEGORIES: Category[] = [
 
 /* ------------------ Component ------------------ */
 export default function AmenitiesAtlasPage() {
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
     <section
       className="bg-white py-20 text-[color:var(--brand)]"
@@ -74,9 +72,12 @@ export default function AmenitiesAtlasPage() {
           <span className="mb-3 inline-block rounded-full bg-[color:var(--gold)]/10 px-4 py-1 text-sm font-semibold text-[color:var(--brand)]">
             Amenities Atlas
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold">Experience Lifestyle Like Never Before</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Experience Lifestyle Like Never Before
+          </h2>
           <p className="mt-2 max-w-2xl mx-auto text-muted-foreground text-lg">
-            Curated spaces designed to nurture wellness, family time, social joy, safety, and nature.
+            Curated spaces designed to nurture wellness, family time, social joy,
+            safety, and nature.
           </p>
         </div>
 
@@ -94,7 +95,9 @@ export default function AmenitiesAtlasPage() {
                   </div>
                   <h3 className="text-lg font-semibold">{cat.title}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">{cat.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {cat.description}
+                </p>
                 <ul className="text-sm text-black/80 space-y-1 list-disc list-inside">
                   {cat.amenities.map((item, idx) => (
                     <li key={idx}>{item}</li>
@@ -109,13 +112,23 @@ export default function AmenitiesAtlasPage() {
 
         {/* Optional CTA at Bottom */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-semibold mb-2">Ready to explore the full lifestyle offering?</h3>
-          <p className="text-sm text-muted-foreground mb-4">Book a visit to experience the amenities first-hand.</p>
-          <button className="rounded-full bg-[color:var(--brand)] px-6 py-2 text-white hover:bg-[color:var(--brand)]/90 transition">
-             <a href="tel:+917211161521">Schedule a Site Visit</a>
+          <h3 className="text-xl font-semibold mb-2">
+            Ready to explore the full lifestyle offering?
+          </h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Book a visit to experience the amenities first-hand.
+          </p>
+          <button
+            onClick={() => setShowPopup(true)}
+            className="rounded-full bg-[color:var(--brand)] px-6 py-2 text-white hover:bg-[color:var(--brand)]/90 transition"
+          >
+            Schedule a Site Visit
           </button>
         </div>
       </div>
+
+      {/* Popup injection */}
+      {showPopup && <EnquiryPopup />}
     </section>
   );
 }

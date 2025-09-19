@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   MapPin,
   School,
@@ -10,47 +10,52 @@ import {
   Plane,
   Sparkles,
 } from "lucide-react";
+import EnquiryPopup from "@/components/EnquiryPopup";// import the popup
 
-/* ------------------ Location Data ------------------ */
-const LOCATION_ADVANTAGES = [
+/* ------------------ Data ------------------ */
+const LOCATION_POINTS = [
   {
     icon: MapPin,
-    title: "Near SG Highway & SP Ring Road",
-    desc: "Strategically located for fast access across Ahmedabad.",
+    title: "Strategic Address",
+    description:
+      "Located near SG Highway & SP Ring Road for seamless city-wide access.",
   },
   {
     icon: School,
-    title: "Top-Rated Schools Nearby",
-    desc: "Close to DPS, Shanti Asiatic, Eklavya and other institutions.",
+    title: "Renowned Schools Nearby",
+    description: "DPS, Shanti Asiatic & Eklavya within a 5–10 minute drive.",
   },
   {
     icon: Hospital,
-    title: "Healthcare in Minutes",
-    desc: "Zydus, Sterling, SAL & multi-specialty clinics nearby.",
+    title: "Healthcare at Hand",
+    description: "Close to Zydus, Sterling, and other leading clinics.",
   },
   {
     icon: ShoppingBag,
-    title: "Malls & Retail Destinations",
-    desc: "One Mall, Gulmohar Park, Cinepolis just a short drive away.",
+    title: "Malls & Markets",
+    description: "Quick access to One Mall, Gulmohar Park & Bopal Central.",
   },
   {
     icon: Building2,
-    title: "Proximity to IT & Business Zones",
-    desc: "Easy commute to GIFT City and emerging corporate parks.",
+    title: "Business & IT Hubs",
+    description: "Near GIFT City, corporate zones & IT corridors.",
   },
   {
     icon: Plane,
-    title: "Airport in 25 Minutes",
-    desc: "Direct route to Sardar Vallabhbhai Patel International Airport.",
+    title: "International Airport",
+    description:
+      "Sardar Vallabhbhai Patel Airport reachable within 25 minutes.",
   },
 ];
 
 /* ------------------ Component ------------------ */
 export default function LocationAdvantagesSection() {
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
     <section
       id="location"
-      className="relative bg-white py-24"
+      className="bg-white py-20"
       style={{
         ["--brand" as any]: "#664632",
         ["--gold" as any]: "#d6b47f",
@@ -59,67 +64,63 @@ export default function LocationAdvantagesSection() {
       <SectionStyles />
 
       <div className="mx-auto max-w-7xl px-4">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--brand)]/10 px-5 py-1 text-sm font-medium text-[color:var(--brand)]">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--brand)]/10 px-4 py-1 text-sm font-medium text-[color:var(--brand)]">
             <Sparkles className="h-4 w-4" />
             South Bopal • Ahmedabad
           </span>
-          <h2 className="text-4xl font-bold">Live Where Everything Connects</h2>
-          <p className="mt-3 max-w-xl mx-auto text-lg text-muted-foreground">
-            Prime location. Premium lifestyle. South Bopal puts the city at your doorstep.
+          <h2 className="text-3xl md:text-4xl font-bold">Location Advantages</h2>
+          <p className="mt-2 max-w-xl mx-auto text-lg text-muted-foreground">
+            A lifestyle destination that connects luxury living with convenience
+            and accessibility.
           </p>
         </div>
 
-        {/* Visual + Feature Layout */}
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left Visual / Map Placeholder */}
-          <div className="lg:col-span-5">
-            <div className="overflow-hidden rounded-2xl border border-[color:var(--brand)]/10 shadow-sm">
-              <img
-                src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80"
-                alt="South Bopal Map"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Right Features */}
-          <div className="lg:col-span-7">
-            <div className="grid sm:grid-cols-2 gap-6">
-              {LOCATION_ADVANTAGES.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group relative flex gap-4 rounded-xl border border-[color:var(--brand)]/15 bg-white p-5 shadow-sm hover:shadow-md transition"
-                >
-                  <div className="h-11 w-11 grid place-items-center rounded-lg bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
-                    <item.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-[color:var(--brand)]">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[color:var(--gold)]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Highlights Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {LOCATION_POINTS.map((point, i) => (
+            <div
+              key={i}
+              className="group relative rounded-xl border border-[color:var(--brand)]/20 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-11 w-11 grid place-items-center rounded-lg bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
+                  <point.icon className="h-5 w-5" />
                 </div>
-              ))}
+                <h3 className="text-base font-semibold text-[color:var(--brand)]">
+                  {point.title}
+                </h3>
+              </div>
+              <p className="text-sm text-muted-foreground">{point.description}</p>
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[color:var(--gold)]/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
-          </div>
+          ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-20 text-center">
-          <h3 className="text-2xl font-semibold">Visit The Masterpiece in South Bopal</h3>
+        <div className="mt-16 text-center">
+          <h3 className="text-xl font-semibold">
+            Visit The Masterpiece in South Bopal
+          </h3>
           <p className="mt-1 text-sm text-muted-foreground">
-            Schedule your site tour and discover what elevated living feels like.
+            Explore the neighborhood, project site, and surrounding lifestyle in
+            person.
           </p>
-          <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4">
-            <button className="rounded-full bg-[color:var(--brand)] px-6 py-3 text-white hover:bg-[color:var(--brand)]/90 transition">
-             <a href="tel:+917211161521">Schedule a Site Visit</a>
+          <div className="mt-4 flex justify-center flex-col sm:flex-row gap-3">
+            <button
+              onClick={() => setShowPopup(true)}
+              className="rounded-full bg-[color:var(--brand)] text-white px-6 py-2 hover:bg-[color:var(--brand)]/90"
+            >
+              Schedule a Site Visit
             </button>
-         
+          
           </div>
         </div>
       </div>
+
+      {/* Popup injection */}
+      {showPopup && <EnquiryPopup />}
     </section>
   );
 }

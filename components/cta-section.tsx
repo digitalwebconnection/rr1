@@ -70,16 +70,7 @@ export function CTASection() {
           </p>
 
           <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              className="group relative overflow-hidden bg-[color:var(--gold)] px-8 py-6 text-black hover:brightness-110"
-            >
-              <span className="relative z-10 text-lg">Enquire Now</span>
-              {/* subtle gloss */}
-              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,.55)_45%,transparent_65%)] opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
-              {/* pulse ring */}
-              <span className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-white/0 cta-pulse" />
-            </Button>
+            
 
             <a href="tel:+917211161521">
               <Button
