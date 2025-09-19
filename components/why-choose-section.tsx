@@ -6,17 +6,14 @@ import { Button } from "@/components/ui/button";
 import {
   Check,
   Crown,
-  FileDown,
   LayoutGrid,
   MapPin,
-  MessageCircle,
   Phone,
   Ruler,
   ShieldCheck,
   Star,
   TrendingUp,
   Users,
-  Wind,
   Wallet,
   Wand2,
 } from "lucide-react";
@@ -90,7 +87,7 @@ const PLAN_DATA = {
       "Corner units with city views",
     ],
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmxFgLfdGhwnfxHseDBwQ-rdA23XDvKcoPg&s",
+      "https://img.freepik.com/premium-photo/exterior-design-high-tower-building-is-modern-architectural-masterpiece_1090394-63432.jpg",
   },
   "5BHK": {
     area: "3545 sq.ft*",
@@ -102,7 +99,7 @@ const PLAN_DATA = {
       "Penthouse-style corner units",
     ],
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+      "https://www.neopolis-kokapet.in/images/demo3.jpg",
   },
 };
 
@@ -251,12 +248,12 @@ export function WhyChooseSection() {
         {/* Privileges */}
         <Reveal>
           <div className="mt-14">
-            <h3 className="mb-4 text-xl font-semibold">Premium Customer Privileges</h3>
+            <h3 className="mb-4 text-xl font-semibold text-center">Premium Customer Privileges</h3>
             <div className="group relative max-w-7xl mx-auto  px-4">
-              <div className="flex snap-x snap-mandatory gap-4">
+              <div className="flex  justify-between gap-4">
                 {PRIVILEGES.map((p) => (
                   <div key={p.title} className="snap-center" style={{ minWidth: 260 }}>
-                    <Card className="relative h-full border border-[color:var(--brand)]/85 bg-[color:var(--brand)]/[.04] shadow-sm">
+                    <Card className="relative h-full border border-[color:var(--brand)]/85 bg-[color:var(--brand)]/[.04] shadow-sm hover:scale-[105%]">
                       <CardContent className="p-5">
                         <div className="mb-3 flex items-center gap-3">
                           <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">

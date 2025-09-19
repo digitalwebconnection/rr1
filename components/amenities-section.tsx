@@ -49,6 +49,7 @@ const AMENITY_CATEGORIES: Category[] = [
     description: "Breathe easy in green, open-air environments.",
     amenities: ["Landscaped Gardens", "Jogging Track", "Open-air Sit-outs"],
   },
+  
 ];
 
 /* ------------------ Component ------------------ */
@@ -57,7 +58,7 @@ export default function AmenitiesAtlasPage() {
 
   return (
     <section
-      className="bg-white py-20 text-[color:var(--brand)]"
+      className="bg-white py-10 text-[color:var(--brand)]"
       id="amenities"
       style={{
         ["--brand" as any]: "#664632",
@@ -93,7 +94,7 @@ export default function AmenitiesAtlasPage() {
                   <div className="h-10 w-10 grid place-items-center rounded-lg bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
                     <cat.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-semibold">{cat.title}</h3>
+                  <h3 className="text-lg font-semibold text-black">{cat.title}</h3>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   {cat.description}
@@ -112,7 +113,7 @@ export default function AmenitiesAtlasPage() {
 
         {/* Optional CTA at Bottom */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-semibold mb-2">
+          <h3 className="text-3xl font-semibold mb-2">
             Ready to explore the full lifestyle offering?
           </h3>
           <p className="text-sm text-muted-foreground mb-4">

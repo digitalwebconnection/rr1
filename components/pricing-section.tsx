@@ -27,16 +27,11 @@ export default function WhyInvest_V2() {
   return (
     <section
       className="relative overflow-hidden text-[color:var(--ink)]"
-      style={{
-        ["--brand" as any]: "#664632",
-        ["--gold" as any]: "#d6b47f",
-        ["--ink" as any]: "#2a211a",
-        ["--muted" as any]: "#6d5c4d",
-      }}
+     
     >
       <HeroRibbon />
 
-      <div className="container mx-auto max-w-7xl px-6 pb-24">
+      <div className="container mx-auto max-w-7xl px-6 pb-4">
         {/* Tabs Section */}
         <TabsReasons />
 
@@ -47,11 +42,11 @@ export default function WhyInvest_V2() {
         <PaymentComparison />
       </div>
 
-      <CtaStrip onEnquire={() => setOpenForm(true)} />
-      <BgDecor />
+      {/* <CtaStrip onEnquire={() => setOpenForm(true)} /> */}
+      {/* <BgDecor /> */}
 
       {/* Controlled popup form */}
-      <QuickEnquiryPopup open={openForm} onClose={() => setOpenForm(false)} />
+      {/* <QuickEnquiryPopup open={openForm} onClose={() => setOpenForm(false)} /> */}
     </section>
   );
 }
@@ -64,14 +59,14 @@ function HeroRibbon() {
       <div className="absolute -left-1/3 top-0 h-[160px] w-[160%] -rotate-3 bg-[color:var(--brand)]/5 backdrop-blur-sm" />
       <div className="absolute -left-1/3 top-10 h-[140px] w-[160%] -rotate-3 bg-[color:var(--gold)]/15" />
 
-      <div className="container relative mx-auto max-w-7xl px-6 pt-16 pb-14">
+      <div className="container relative mx-auto max-w-7xl px-6 pt-16 pb-4">
         <div className="flex flex-col items-center text-center">
           <div className="mb-4 flex flex-wrap items-center justify-center gap-3 text-xs">
             <span className="rounded-full border border-[color:var(--gold)]/30 bg-[color:var(--gold)]/10 px-3 py-1 font-medium text-[color:var(--brand)]">
               South Bopal • Ahmedabad
             </span>
             <span className="h-1 w-1 rounded-full bg-[color:var(--gold)]/70" />
-            <span className="text-[color:var(--muted)]">RERA-approved luxury addresses</span>
+
           </div>
 
           <motion.h1
@@ -82,7 +77,7 @@ function HeroRibbon() {
           >
             Why Invest in <span className="text-[color:var(--gold)]">The Masterpiece</span>
           </motion.h1>
-          <p className="mt-3 max-w-2xl text-lg text-[color:var(--muted)]">
+          <p className="mt-3 max-w-2xl text-lg text-black">
             Premium 4 & 5 BHK residences designed for appreciation, comfort, and future-ready living.
           </p>
 
@@ -95,9 +90,9 @@ function HeroRibbon() {
             ].map(([a, b], i) => (
               <div
                 key={i}
-                className="rounded-xl bg-white/70 px-4 py-3 text-center shadow-[0_4px_18px_-10px_rgba(0,0,0,0.25)]"
+                className="rounded-xl bg-[#664632] px-4 py-3 text-center shadow-[0_4px_18px_-10px_rgba(0,0,0,0.25)]"
               >
-                <div className="text-xl font-bold text-[color:var(--brand)]">{a}</div>
+                <div className="text-xl font-bold text-white">{a}</div>
                 <div className="text-[11px] tracking-wide text-[color:var(--muted)]">{b}</div>
               </div>
             ))}
@@ -157,7 +152,7 @@ function TabsReasons() {
             className={`group flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition ${
               active === t.key
                 ? "border-[color:var(--gold)] bg-[color:var(--gold)]/15 text-[color:var(--brand)]"
-                : "border-[color:var(--brand)]/15 bg-white/70 text-[color:var(--muted)] hover:bg-white"
+                : "border-[color:var(--brand)]/15 bg-black/90 text-[color:var(--muted)] "
             }`}
           >
             <t.icon className="h-4 w-4" />
@@ -241,7 +236,7 @@ function MosaicHighlights() {
             </div>
             <div>
               <h4 className="text-lg font-semibold text-[color:var(--brand)]">{item.title}</h4>
-              <p className="mt-1 text-sm text-[color:var(--muted)]">{item.description}</p>
+              <p className="mt-1 text-sm ">{item.description}</p>
             </div>
           </div>
         </motion.div>

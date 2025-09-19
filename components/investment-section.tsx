@@ -63,7 +63,7 @@ const configurations = [
 export default function InvestmentSection () {
   return (
     <section
-      className="bg-white py-20"
+      className="bg-white pt-20 pb-8"
       style={{
         ["--brand" as any]: "#6b4a3a",
         ["--gold" as any]: "#d6b47f",

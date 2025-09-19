@@ -40,7 +40,7 @@ export function GallerySection() {
   return (
     <section
       id="gallery"
-      className="relative py-20"
+      className="relative py-10"
       style={{
         ["--brand" as any]: "#664632",
         ["--gold" as any]: "#d6b47f",
@@ -119,41 +119,7 @@ export function GallerySection() {
           </a>
         </div>
 
-        {/* Testimonials */}
-        <section className="mt-20 relative z-10">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold">Resident Testimonials</h2>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto text-balance">
-              Hear what our homeowners love about life at The Masterpiece.
-            </p>
-          </div>
-
-          <div className="mx-auto max-w-4xl grid gap-6 sm:grid-cols-2 px-4">
-            {[
-              {
-                stars: 5,
-                quote:
-                  "Spacious layouts, skyline views, perfect for modern family living.",
-                author: "Meera S.",
-              },
-              {
-                stars: 5,
-                quote:
-                  "Trusted developer, premium amenities, and great South Bopal location.",
-                author: "Rajesh P.",
-              },
-            ].map((t, i) => (
-              <div
-                key={i}
-                className="relative rounded-xl border border-[color:var(--brand)]/15 bg-white/80 p-6 backdrop-blur shadow-sm"
-              >
-                <div className="mb-2 text-yellow-500 text-lg">{"⭐".repeat(t.stars)}</div>
-                <p className="text-sm text-muted-foreground mb-3">“{t.quote}”</p>
-                <div className="text-sm font-semibold text-[color:var(--brand)]">– {t.author}</div>
-              </div>
-            ))}
-          </div>
-        </section>
+   
       </div>
 
       {/* Lightbox */}

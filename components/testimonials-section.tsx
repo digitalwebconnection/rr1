@@ -213,7 +213,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="relative py-20"
+      className="relative py-10"
       style={
         {
           ["--brand" as any]: "#664632",

@@ -9,18 +9,18 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export function CTASection() {
   return (
     <section
-      className="relative py-20 text-white"
+      className="relative py-10 text-white"
       style={
         {
           ["--brand" as any]: "#664632",
-          ["--gold" as any]: "#d6b47f",
-          ["--paper" as any]: "#f6efe8",
+          ["--gold" as any]: "#664632",
+          ["--paper" as any]: "#664632",
         } as React.CSSProperties
       }
     >
       {/* ==== Background stack (distinct from other sections) ==== */}
       {/* 1) Brand gradient */}
-      <div aria-hidden className="absolute inset-0 -z-50 bg-black/70" />
+      <div aria-hidden className="absolute inset-0 -z-50 bg-[#664632]/70" />
       {/* 2) Soft grid masked top+bottom */}
       <div
         aria-hidden

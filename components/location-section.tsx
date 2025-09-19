@@ -55,7 +55,7 @@ export default function LocationAdvantagesSection() {
   return (
     <section
       id="location"
-      className="bg-white py-20"
+      className="bg-white py-10"
       style={{
         ["--brand" as any]: "#664632",
         ["--gold" as any]: "#d6b47f",
@@ -88,7 +88,7 @@ export default function LocationAdvantagesSection() {
                 <div className="h-11 w-11 grid place-items-center rounded-lg bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
                   <point.icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-base font-semibold text-[color:var(--brand)]">
+                <h3 className="text-base font-semibold text-black">
                   {point.title}
                 </h3>
               </div>
@@ -100,17 +100,17 @@ export default function LocationAdvantagesSection() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-semibold">
+          <h3 className="text-2xl font-semibold">
             Visit The Masterpiece in South Bopal
           </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-lg text-muted-foreground">
             Explore the neighborhood, project site, and surrounding lifestyle in
             person.
           </p>
           <div className="mt-4 flex justify-center flex-col sm:flex-row gap-3">
             <button
               onClick={() => setShowPopup(true)}
-              className="rounded-full bg-[color:var(--brand)] text-white px-6 py-2 hover:bg-[color:var(--brand)]/90"
+              className="rounded-full bg-[color:var(--brand)] text-white px-10 py-2 hover:bg-[color:var(--brand)]/90"
             >
               Schedule a Site Visit
             </button>
