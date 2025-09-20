@@ -92,7 +92,6 @@ const PLAN_DATA = {
     priceFrom: "₹3.25CR (All Inclusive)*",
     maintenance: "Luxury-tier services included",
     keypoints: [
-      "RERA-approved project offering safe and secure investment.",
       "Trusted developer shaping premium residences in Ahmedabad.",
       "Penthouse-style corner units",
     ],
