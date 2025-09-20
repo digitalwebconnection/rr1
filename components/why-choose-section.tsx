@@ -62,8 +62,7 @@ function Reveal({
 
 /* =================== Data =================== */
 const KPIS = [
-  { label: "RERA ID", value: "PR/GJ/AHMEDABAD/2025/XXXX" },
-  { label: "Possession", value: "March 2027" },
+  { label: "RERA ID", value: "AG/GJ/AHMEDABAD/AHMEDABAD CITY/AUDA/AA02125/080828R1" },
   { label: "Configurations", value: "4 & 5 BHK" },
   { label: "Towers / Floors", value: "7 Towers / 18 Floors" },
 ];
@@ -142,7 +141,7 @@ export function WhyChooseSection() {
         {/* KPIs */}
         <Reveal>
           <div className="mx-auto mb-12 max-w-5xl rounded-2xl border border-white bg-white/80 p-4 shadow-sm">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className=" grid-cols-2 gap-4 md:grid-cols-4  flex justify-between">
               {KPIS.map((kpi, i) => (
                 <Reveal key={kpi.label} delay={i * 60}>
                   <div className="text-center">
