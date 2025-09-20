@@ -82,10 +82,9 @@ function HeroRibbon() {
           </p>
 
           {/* KPI Chips */}
-          <div className="mt-6 grid grid-cols-3 gap-3 rounded-2xl border border-[color:var(--brand)]/10 bg-white/60 p-3 backdrop-blur-xl sm:w-auto">
+          <div className="mt-6 grid grid-cols-2 gap-6 rounded-2xl border border-[color:var(--brand)]/10 bg-white/60 p-3 backdrop-blur-xl sm:w-auto">
             {[
               ["4 & 5", "BHK"],
-              ["RERA", "Approved"],
               ["Prime", "Corridor"],
             ].map(([a, b], i) => (
               <div
@@ -203,11 +202,7 @@ const HIGHLIGHTS = [
       "Elevated living with open vistas and strong appreciation potential in a low-supply corridor.",
     Icon: LayoutGrid,
   },
-  {
-    title: "RERA Approved & Legally Clear",
-    description: "Clean titles and regulatory compliance ensure purchase confidence.",
-    Icon: CheckCircle,
-  },
+ 
   {
     title: "Limited Inventory, High Exclusivity",
     description: "Low-density planning preserves privacy and premium value over time.",
@@ -226,7 +221,7 @@ function MosaicHighlights() {
           viewport={{ once: true }}
           transition={{ duration: 0.45, delay: idx * 0.05 }}
           className={`group relative overflow-hidden rounded-3xl border border-[color:var(--brand)]/10 bg-white/70 p-6 backdrop-blur-xl shadow-[0_10px_40px_-20px_rgba(0,0,0,0.25)] ${
-            idx === 0 ? "lg:col-span-2" : ""
+            idx === 0 ? "lg:col-span-3" : ""
           }`}
         >
           <span className="absolute inset-x-0 top-0 h-1 bg-[color:var(--gold)]/70" />
@@ -259,7 +254,7 @@ function MosaicHighlights() {
             <h4 className="text-lg font-semibold text-[color:var(--brand)]">
               Ahmedabad's Prime Growth Corridor
             </h4>
-            <p className="mt-1 text-sm text-[color:var(--muted)]">
+            <p className="mt-1 text-sm text-black">
               Quick access to SG Highway & S.P. Ring Road with emerging social infrastructure.
             </p>
           </div>

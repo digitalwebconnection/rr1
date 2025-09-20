@@ -85,10 +85,9 @@ export function CTASection() {
           </div>
 
           {/* trust strip */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-white/80">
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">RERA Compliant</span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">4.9★ Rated by Homeowners</span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1">120+ Site Visits Last Week</span>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-8 text-xs text-white/80">
+            <span className="rounded-full border border-white/20 bg-white/10 px-8 py-1">4.9★ Rated by Homeowners</span>
+            <span className="rounded-full border border-white/20 bg-white/10 px-8 py-1">120+ Site Visits Last Week</span>
           </div>
         </div>
 

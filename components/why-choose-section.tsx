@@ -70,7 +70,6 @@ const KPIS = [
 const PRIVILEGES = [
   { icon: Crown, title: "Concierge Services", text: "From maintenance to reservations." },
   { icon: Wallet, title: "Flexible Payment", text: "Customized payment plans for you." },
-  { icon: ShieldCheck, title: "RERA Approved", text: "Safe and secure investment." },
   { icon: Users, title: "Elite Community", text: "Curated events & lifestyle upgrades." },
 
 ];
@@ -89,8 +88,8 @@ const PLAN_DATA = {
       "https://img.freepik.com/premium-photo/exterior-design-high-tower-building-is-modern-architectural-masterpiece_1090394-63432.jpg",
   },
   "5BHK": {
-    area: "3545 sq.ft*",
-    priceFrom: "₹2.23 CR (All Inclusive)*",
+    area: "5185 sq.ft*",
+    priceFrom: "₹3.25CR (All Inclusive)*",
     maintenance: "Luxury-tier services included",
     keypoints: [
       "RERA-approved project offering safe and secure investment.",
@@ -141,10 +140,10 @@ export function WhyChooseSection() {
         {/* KPIs */}
         <Reveal>
           <div className="mx-auto mb-12 max-w-5xl rounded-2xl border border-white bg-white/80 p-4 shadow-sm">
-            <div className=" grid-cols-2 gap-4 md:grid-cols-4  flex justify-between">
+            <div className=" grid-cols-1 gap-4 md:grid-cols-4   md:flex  justify-between">
               {KPIS.map((kpi, i) => (
                 <Reveal key={kpi.label} delay={i * 60}>
-                  <div className="text-center">
+                  <div className="text-center py-3 md:py-0">
                     <div className="text-xs text-[#030201]">{kpi.label}</div>
                     <div className="mt-1 text-lg font-semibold">{kpi.value}</div>
                   </div>
@@ -245,30 +244,56 @@ export function WhyChooseSection() {
         </div>
 
         {/* Privileges */}
-        <Reveal>
-          <div className="mt-14">
-            <h3 className="mb-4 text-xl font-semibold text-center">Premium Customer Privileges</h3>
-            <div className="group relative max-w-7xl mx-auto  px-4">
-              <div className="flex  justify-between gap-4">
-                {PRIVILEGES.map((p) => (
-                  <div key={p.title} className="snap-center" style={{ minWidth: 260 }}>
-                    <Card className="relative h-full border border-[color:var(--brand)]/85 bg-[color:var(--brand)]/[.04] shadow-sm hover:scale-[105%]">
-                      <CardContent className="p-5">
-                        <div className="mb-3 flex items-center gap-3">
-                          <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
-                            <p.icon className="h-5 w-5" />
-                          </div>
-                          <div className="text-base font-semibold">{p.title}</div>
-                        </div>
-                        <p className="text-sm text-muted-foreground">{p.text}</p>
-                      </CardContent>
-                    </Card>
+     <Reveal>
+  <div className="mt-14">
+    <h3 className="mb-4 text-xl font-semibold text-center">
+      Premium Customer Privileges
+    </h3>
+
+    {/* Outer container */}
+    <div className="group relative mx-auto max-w-7xl px-4">
+      {/* 
+        Mobile: horizontal scroll + snap 
+        md+: wrap into rows with normal layout (no horizontal scroll)
+      */}
+      <div
+        className="
+          -mx-4 px-4 pb-3
+          flex gap-4
+          overflow-x-auto snap-x snap-mandatory
+          md:overflow-visible md:flex-wrap md:justify-between
+          [scrollbar-width:none] [-ms-overflow-style:none]
+          [&::-webkit-scrollbar]:hidden
+        "
+      >
+        {PRIVILEGES.map((p) => (
+          <div
+            key={p.title}
+            className="
+              snap-start shrink-0
+              min-w-[260px] max-w-[320px]
+              sm:min-w-[280px]
+              md:shrink md:min-w-0 md:max-w-none md:basis-[calc(33.333%-1rem)]
+            "
+          >
+            <Card className="relative h-full border border-[color:var(--brand)]/85 bg-[color:var(--brand)]/[.04] shadow-sm motion-safe:hover:scale-[1.05] transition">
+              <CardContent className="p-5">
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
+                    <p.icon className="h-5 w-5" />
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div className="text-base font-semibold">{p.title}</div>
+                </div>
+                <p className="text-sm text-muted-foreground">{p.text}</p>
+              </CardContent>
+            </Card>
           </div>
-        </Reveal>
+        ))}
+      </div>
+    </div>
+  </div>
+</Reveal>
+
 
         {/* Comparison */}
         <Reveal>
