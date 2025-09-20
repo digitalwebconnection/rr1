@@ -5,12 +5,12 @@ import { useEffect, useMemo, useState } from "react"
 type Tag = "All" | "Interiors" | "Amenities" | "Exteriors"
 
 const IMAGES: Array<{ src: string; alt: string; tag: Exclude<Tag, "All"> }> = [
-  { src: "/apartment-interior-1.png", alt: "Spacious living room with modern furnishing", tag: "Interiors" },
-  { src: "/modern-apartment-bedroom.png", alt: "Comfortable bedroom with natural light", tag: "Interiors" },
-  { src: "/modern-apartment-kitchen.png", alt: "Modern modular kitchen", tag: "Interiors" },
-  { src: "/swimming-pool-residential-complex.jpg", alt: "Swimming pool and recreational area", tag: "Amenities" },
-  { src: "/landscaped-garden-residential.jpg", alt: "Landscaped gardens and green spaces", tag: "Amenities" },
-  { src: "/residential-building-exterior-architecture.jpg", alt: "rrealtor Studio building exterior", tag: "Exteriors" },
+  { src: "/apartment-interior-1.png", alt: "", tag: "Interiors" },
+  { src: "/modern-apartment-bedroom.png", alt: "", tag: "Interiors" },
+  { src: "/modern-apartment-kitchen.png", alt: "", tag: "Interiors" },
+  { src: "/swimming-pool-residential-complex.jpg", alt: "", tag: "Amenities" },
+  { src: "https://cdn.prod.website-files.com/6375fffd5374d2795f833cc8/6375fffd5374d2c5ae833f92_apartment_amenities.original.jpg", alt: "", tag: "Amenities" },
+  { src: "https://superadmin.homes247.in/images/uploadPropertyImgs/1635768567-G6@72x-50.jpg", alt: "", tag: "Exteriors" },
 ]
 
 export function GallerySection() {

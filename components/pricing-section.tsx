@@ -11,16 +11,7 @@ import {
   HandCoins,
 } from "lucide-react";
 
-/**
- * Brand-new structure & design (V2)
- * ------------------------------------------------------------
- * Layout:
- * 1) Ribbon Hero with angled gold band + KPI chips
- * 2) Reasons shown as Tabs (Investment • Location • Lifestyle)
- * 3) Mosaic Features grid (staggered cards)
- * 4) Payment plans — side-by-side comparison table
- * 5) CTA strip with location pin & quick facts
- */
+
 export default function WhyInvest_V2() {
   const [openForm, setOpenForm] = React.useState(false);
 

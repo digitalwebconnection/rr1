@@ -103,9 +103,9 @@ export function CTASection() {
           <ContactCard
             icon={<Mail className="h-8 w-8" />}
             title="Email Us"
-            line="info@realtorsstudios.com"
-            href="mailto:info@realtorsstudios.com"
-            ariaLabel="Email info@realtorsstudios.com"
+            line="info@rrealtorstudio.com"
+            href="mailto:info@rrealtorstudio.comm"
+            ariaLabel="Email info@rrealtorstudio.com"
           />
           <ContactCard
             icon={<MapPin className="h-8 w-8" />}

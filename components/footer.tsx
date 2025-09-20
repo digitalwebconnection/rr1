@@ -50,9 +50,9 @@ export function Footer() {
                 <a href="tel:+917211161521"> Phone: +91-7211161521</a>
               </li>
               <li>
-                <a href="mailto:info@realtorsstudios.com">
+                <a href="mailto:info@rrealtorstudio.com">
                   {" "}
-                  Email: info@realtorsstudios.com
+                  Email: info@rrealtorstudio.com
                 </a>
               </li>
               <li>Address: Gala Gymkhana Road, South Bopal Ahmedabad</li>
