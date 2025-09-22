@@ -12,11 +12,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
-        <Analytics />
-      </body>
-    </html>
+   <html lang="en" className="overflow-x-clip">  {/* clip is better than hidden */}
+  <body className="overflow-x-clip">
+    {children}
+     <Analytics />
+  </body>
+</html>
+
   )
 }

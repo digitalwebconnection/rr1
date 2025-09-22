@@ -215,8 +215,8 @@ export function Hero() {
       <div className="pointer-events-none absolute right-8 top-10 -z-10">
         <div className="relative h-24 w-24">
           <span className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.35),transparent_60%)] blur-md animate-flare" />
-          {/* <span className="absolute left-1/2 top-1/2 h-[1px] w-24 -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent)]" />
-          <span className="absolute left-1/2 top-1/2 h-24 w-[1px] -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.6),transparent)]" /> */}
+          <span className="absolute left-1/2 top-1/2 h-[1px] w-24 -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent)]" />
+          <span className="absolute left-1/2 top-1/2 h-24 w-[1px] -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.6),transparent)]" />
         </div>
       </div>
 

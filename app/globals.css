@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Never let media exceed the viewport width */
+img, video, svg, canvas { max-width: 100%; height: auto; }
+
+/* Avoid 100vw scrollbar issues on mobile */
+:root, body { width: 100%; }
+
+/* Optional: prevent browser zoom bounce causing brief overflow */
+* { box-sizing: border-box; }
 
 /* @layer base {
   * {
