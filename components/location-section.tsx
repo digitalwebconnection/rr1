@@ -108,19 +108,19 @@ export default function LocationAdvantagesSection() {
             person.
           </p>
           <div className="mt-4 flex justify-center flex-col sm:flex-row gap-3">
-            <button
-              onClick={() => setShowPopup(true)}
-              className="rounded-full bg-[color:var(--brand)] text-white px-10 py-2 hover:bg-[color:var(--brand)]/90"
-            >
-              Schedule a Site Visit
-            </button>
+           <button
+            onClick={() => setShowPopup(true)}
+            className="rounded-full bg-[color:var(--brand)] px-6 py-2 text-white hover:bg-[color:var(--brand)]/90 transition"
+          >
+            Schedule a Site Visit
+          </button>
           
           </div>
         </div>
       </div>
 
       {/* Popup injection */}
-      {showPopup && <EnquiryPopup />}
+           {showPopup && <EnquiryPopup />}
     </section>
   );
 }
