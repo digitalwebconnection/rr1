@@ -264,7 +264,7 @@ function MosaicHighlights() {
 /* ===================== 4) PAYMENT COMPARISON ===================== */
 function PaymentComparison() {
   return (
-    <div className="mx-auto mt-16 sm:mt-20 w-full max-w-5xl">
+    <div className=" hidden md:flex md:flex-col mx-auto mt-16 sm:mt-20 w-full max-w-5xl">
       <div className="mb-4 text-center px-4">
         <h3 className="text-xl sm:text-2xl font-bold text-[color:var(--brand)]">
           Flexible <span className="text-[color:var(--gold)]">Payment Plans</span>

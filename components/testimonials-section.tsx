@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Quote, ChevronLeft, ChevronRight, PlayCircle } from "lucide-react";
 
-/* ------------ data (unchanged) ------------- */
+/* ------------ data ------------- */
 type Review = {
   name: string;
   role: string;
@@ -65,14 +65,13 @@ const REVIEWS: Review[] = [
   },
 ];
 
-/* ------------ helpers (unchanged + tilt) ------------- */
+/* ------------ helpers ------------- */
 function StarRating({ value }: { value: number }) {
   const full = Math.floor(value);
   const half = value - full >= 0.5;
-  const total = 5;
   return (
     <div className="inline-flex items-center gap-1">
-      {Array.from({ length: total }).map((_, i) => {
+      {Array.from({ length: 5 }).map((_, i) => {
         const filled = i < full;
         const isHalf = !filled && i === full && half;
         return (
@@ -97,12 +96,16 @@ function BadgePill({ children }: { children: React.ReactNode }) {
   );
 }
 
+/* tilt only on pointer: fine (desktops) */
+const useAllowTilt = () =>
+  useMemo(() => (typeof window !== "undefined" && matchMedia("(pointer: fine)").matches), []);
+
 function handleTilt(e: React.MouseEvent<HTMLElement>) {
   const el = e.currentTarget as HTMLElement;
   const rect = el.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
-  const rx = ((y / rect.height) - 0.5) * -4; // tilt range
+  const rx = ((y / rect.height) - 0.5) * -4;
   const ry = ((x / rect.width) - 0.5) * 4;
   el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
 }
@@ -112,19 +115,28 @@ function resetTilt(e: React.MouseEvent<HTMLElement>) {
 }
 
 function ReviewCard({ r }: { r: Review }) {
+  const allowTilt = useAllowTilt();
   const isVideo = !!r.video;
+
   return (
     <Card
-      className="group review-card relative snap-start w-[86%] shrink-0 border-0 bg-background/70 shadow-sm ring-1 ring-black/5 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-0.5 sm:w-[62%] md:w-[48%] lg:w-[32%]"
-      onMouseMove={handleTilt}
-      onMouseLeave={resetTilt}
+      className="
+        group hidden md:flex review-card relative snap-start
+        w-[85vw] sm:w-[60%] md:w-[48%] lg:w-[32%]
+        max-w-[360px]
+        shrink-0 border-0 bg-background/70 shadow-sm ring-1 ring-black/5 backdrop-blur-sm
+        transition-transform duration-300
+        hover:-translate-y-0.5
+      "
+      onMouseMove={allowTilt ? handleTilt : undefined}
+      onMouseLeave={allowTilt ? resetTilt : undefined}
     >
       {/* subtle border glow */}
       <span className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 [box-shadow:0_0_0_1px_rgba(214,180,127,.35)_inset,0_6px_30px_-10px_rgba(0,0,0,.35)]" />
       {/* shine sweep */}
       <span className="pointer-events-none absolute inset-0 translate-x-[-120%] rounded-xl bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,.35)_45%,transparent_65%)] opacity-0 transition-all duration-700 group-hover:translate-x-[120%] group-hover:opacity-100" />
 
-      <CardContent className="relative p-5">
+      <CardContent className="relative p-4 sm:p-5">
         {/* header */}
         <div className="mb-3 flex items-center gap-3">
           {isVideo ? (
@@ -140,8 +152,8 @@ function ReviewCard({ r }: { r: Review }) {
           )}
 
           <div className="min-w-0">
-            <div className="truncate font-semibold">{r.name}</div>
-            <div className="truncate text-xs text-muted-foreground">
+            <div className="truncate font-semibold text-[15px] sm:text-base">{r.name}</div>
+            <div className="truncate text-[11px] sm:text-xs text-muted-foreground">
               {r.role} {r.location ? `• ${r.location}` : ""}
             </div>
           </div>
@@ -150,13 +162,13 @@ function ReviewCard({ r }: { r: Review }) {
         {/* rating + date */}
         <div className="mb-3 flex items-center justify-between">
           <StarRating value={r.rating} />
-          <span className="text-xs text-muted-foreground">{r.date}</span>
+          <span className="text-[11px] sm:text-xs text-muted-foreground">{r.date}</span>
         </div>
 
         {isVideo ? (
           <div className="relative overflow-hidden rounded-lg border border-border">
             <video
-              className="h-44 w-full bg-black object-cover"
+              className="h-40 sm:h-44 w-full bg-black object-cover"
               src={r.video?.src}
               poster={r.video?.poster}
               controls
@@ -165,9 +177,8 @@ function ReviewCard({ r }: { r: Review }) {
           </div>
         ) : (
           <>
-            {/* animated quote ping */}
             <Quote className="mb-2 h-5 w-5 text-primary drop-shadow-[0_0_6px_rgba(214,180,127,.35)] quote-ping" />
-            <blockquote className="line-clamp-6 text-sm leading-relaxed text-muted-foreground">
+            <blockquote className="line-clamp-6 text-[13px] sm:text-sm leading-relaxed text-muted-foreground">
               “{r.quote}”
             </blockquote>
           </>
@@ -176,14 +187,14 @@ function ReviewCard({ r }: { r: Review }) {
         {/* footer */}
         <div className="mt-4 flex items-center justify-between">
           <BadgePill>{r.source || "Site Review"}</BadgePill>
-          <span className="text-xs text-muted-foreground">Verified Resident</span>
+          <span className="text-[11px] sm:text-xs text-muted-foreground">Verified Resident</span>
         </div>
       </CardContent>
     </Card>
   );
 }
 
-/* ------------ main section (new bg + progress + ripple) ------------- */
+/* ------------ main section ------------- */
 export function TestimonialsSection() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [hovered, setHovered] = useState(false);
@@ -221,7 +232,7 @@ export function TestimonialsSection() {
         } as React.CSSProperties
       }
     >
-      {/* ==== Background: brand tint + grain + shimmer + orbs ==== */}
+      {/* background */}
       <div
         aria-hidden
         className="absolute inset-0 -z-50"
@@ -238,74 +249,54 @@ export function TestimonialsSection() {
             "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.45'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
         }}
       />
-      <div className="pointer-events-none absolute inset-0 -z-30 overflow-hidden">
-        <span className="absolute -left-1/3 top-0 h-[150%] w-1/2 rotate-[18deg] bg-[linear-gradient(90deg,transparent,rgba(214,180,127,0.18),transparent)] animate-tt-shimmer" />
-      </div>
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-30 mix-blend-screen">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <span
-            key={i}
-            className={`absolute rounded-full blur-2xl ${
-              i % 2 ? "tt-blob-rev" : "tt-blob"
-            }`}
-            style={{
-              top: `${(i * 19) % 90}%`,
-              left: `${(i * 27) % 90}%`,
-              width: 140 + ((i * 29) % 120),
-              height: 140 + ((i * 29) % 120),
-              opacity: 0.07 + ((i % 4) * 0.03),
-              background:
-                "radial-gradient(closest-side, rgba(214,180,127,0.45), rgba(214,180,127,0.0) 60%)",
-            }}
-          />
-        ))}
-      </div>
 
       <div className="mx-auto max-w-7xl px-4">
         {/* header */}
-        <div className="mx-auto mb-10 max-w-3xl text-center">
+        <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
             Resident Reviews
           </div>
-          <h2 className="text-balance text-3xl font-bold md:text-4xl">What Our Residents Say</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-balance text-lg text-muted-foreground">
+          <h2 className="text-balance text-2xl sm:text-3xl md:text-4xl font-bold">
+            What Our Residents Say
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-balance text-[15px] sm:text-lg text-muted-foreground">
             Genuine experiences from families who chose rrealtorStudio.
           </p>
-          <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-border bg-background px-4 py-2 shadow-sm">
+          <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-border bg-background px-3 sm:px-4 py-2 shadow-sm">
             <StarRating value={avg} />
             <span className="text-sm font-semibold">{avg} / 5.0</span>
             <span className="text-xs text-muted-foreground">• 250+ reviews</span>
           </div>
         </div>
 
-        {/* auto-scroll progress (pauses on hover) */}
+        {/* auto-scroll progress */}
         <div className="mx-auto mb-3 h-1 w-full max-w-5xl overflow-hidden rounded-full bg-black/5">
           <span
             className="block h-full w-1/3 rounded-full bg-[color:var(--gold)]/80 tt-progress"
-            style={{ animationPlayState: hovered ? "paused" as const : "running" }}
+            style={{ animationPlayState: hovered ? ("paused" as const) : ("running" as const) }}
           />
         </div>
 
         {/* carousel */}
         <div className="relative">
           {/* gradient fades */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white to-transparent md:w-16" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent md:w-16" />
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-6 sm:w-12 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-6 sm:w-12 bg-gradient-to-l from-white to-transparent" />
 
           {/* track */}
           <div
             ref={trackRef}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="hide-scrollbar -mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-1 py-2"
+            className="hide-scrollbar -mx-2 flex snap-x snap-mandatory gap-3 sm:gap-4 overflow-x-auto scroll-smooth px-2 py-2"
           >
             {REVIEWS.map((r, i) => (
               <ReviewCard key={i} r={r} />
             ))}
           </div>
 
-          {/* arrows with ripple */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-1 md:pl-3">
+          {/* arrows (hidden on mobile to avoid overlap) */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 hidden sm:flex items-center pl-2 md:pl-3">
             <Button
               size="icon"
               variant="outline"
@@ -316,7 +307,7 @@ export function TestimonialsSection() {
               <ChevronLeft className="h-4 w-4" />
             </Button>
           </div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1 md:pr-3">
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden sm:flex items-center pr-2 md:pr-3">
             <Button
               size="icon"
               variant="outline"
@@ -329,43 +320,31 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        {/* footer ctas */}
-        <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button className="w-full sm:w-auto bg-[#664632]">See All Google Reviews</Button>
-          <Button variant="outline" className="w-full sm:w-auto">
-            Share Your Experience
-          </Button>
-        </div>
+     
       </div>
 
-      {/* local css: hide scrollbar + effects */}
+      {/* local css */}
       <style>{`
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* shimmer sweep */
         @keyframes tt-shimmer-move { 0% { transform: translateX(-120%) rotate(18deg) } 100% { transform: translateX(120%) rotate(18deg) } }
         .animate-tt-shimmer { animation: tt-shimmer-move 10s linear infinite }
 
-        /* bokeh orbs */
         @keyframes tt-drift { 0%,100% { transform: translateX(-3%) scale(1); opacity:.8 } 50% { transform: translateX(3%) scale(1.03); opacity:.95 } }
         @keyframes tt-drift-rev { 0%,100% { transform: translateX(3%) scale(1); opacity:.75 } 50% { transform: translateX(-3%) scale(1.02); opacity:.9 } }
         .tt-blob { animation: tt-drift 18s ease-in-out infinite }
         .tt-blob-rev { animation: tt-drift-rev 20s ease-in-out infinite }
 
-        /* quote ping */
         @keyframes quote-ping-kf { 0% { transform: translateY(0); opacity: .9 } 50% { transform: translateY(-2px); opacity: 1 } 100% { transform: translateY(0); opacity: .9 } }
         .quote-ping { animation: quote-ping-kf 3.2s ease-in-out infinite }
 
-        /* progress bar */
         @keyframes tt-progress-kf { 0% { transform: translateX(-110%) } 100% { transform: translateX(300%) } }
         .tt-progress { animation: tt-progress-kf 4s linear infinite }
 
-        /* arrow ripple */
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(102,70,50,.35) } 70% { box-shadow: 0 0 0 10px rgba(102,70,50,0) } 100% { box-shadow: 0 0 0 0 rgba(102,70,50,0) } }
         .btn-ripple:active { animation: ripple .5s ease-out }
 
-        /* reduce motion */
         @media (prefers-reduced-motion: reduce) {
           .animate-tt-shimmer, .tt-blob, .tt-blob-rev, .quote-ping, .tt-progress, .btn-ripple { animation: none }
         }
