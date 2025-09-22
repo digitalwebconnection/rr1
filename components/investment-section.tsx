@@ -135,7 +135,7 @@ export default function InvestmentSection () {
           <div className="mt-4 flex flex-col sm:flex-row justify-center gap-3">
             <Button className="bg-[color:var(--brand)] text-white hover:brightness-110">
               <Phone className="mr-2 h-4 w-4" />
-             <a href="tel:+917211161521">Request a Call Back</a>
+             <a href="tel:+917211161521">Request a Call</a>
             </Button>
         
           </div>

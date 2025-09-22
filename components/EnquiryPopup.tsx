@@ -12,7 +12,7 @@ export default function EnquiryPopup() {
 
   // Auto open after 3s
   useEffect(() => {
-    const t = setTimeout(() => setOpen(true), 3000);
+    const t = setTimeout(() => setOpen(true), 5000);
     return () => clearTimeout(t);
   }, []);
 
