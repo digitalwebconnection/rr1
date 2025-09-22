@@ -280,9 +280,7 @@ export function TestimonialsSection() {
         {/* carousel */}
         <div className="relative">
           {/* gradient fades */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-6 sm:w-12 bg-gradient-to-r from-white to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-6 sm:w-12 bg-gradient-to-l from-white to-transparent" />
-
+          
           {/* track */}
           <div
             ref={trackRef}

@@ -36,9 +36,7 @@ export function CTASection() {
         } as any}
       />
       {/* 3) Gold shimmer sweep */}
-      <div className="pointer-events-none absolute inset-0 -z-30 overflow-hidden">
-        <span className="cta-shimmer absolute -left-1/3 top-0 h-[160%] w-1/2 rotate-[18deg] bg-[linear-gradient(90deg,transparent,rgba(214,180,127,0.15),transparent)]" />
-      </div>
+
       {/* 4) Floating bokeh orbs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-30 mix-blend-screen">
         {Array.from({ length: 6 }).map((_, i) => (

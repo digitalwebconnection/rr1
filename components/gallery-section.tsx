@@ -187,9 +187,7 @@ function BackgroundFX() {
         backgroundSize: "22px 22px",
         maskImage: "radial-gradient(1000px 300px at 50% 12%, black, transparent 75%), radial-gradient(1000px 300px at 50% 88%, black, transparent 75%)"
       }} />
-      <div className="pointer-events-none absolute inset-0 -z-30 overflow-hidden">
-        <span className="gl-shimmer absolute -left-1/3 top-0 h-[140%] w-1/2 rotate-[18deg] bg-[linear-gradient(90deg,transparent,rgba(214,180,127,0.14),transparent)]" />
-      </div>
+  
     </>
   )
 }

@@ -88,7 +88,7 @@ export default function EnquiryPopup() {
 
   return (
     <div
-      className="fixed w-[320px] md:w-full inset-0 z-[9999] bg-black/60 backdrop-blur-sm px-4 py-4 sm:p-6"
+      className="fixed  w-full inset-0 z-[9999] bg-black/60 backdrop-blur-sm px-4 py-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="enquiry-title"

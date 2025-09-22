@@ -55,10 +55,14 @@ function HeroRibbon() {
   return (
     <div className="relative isolate overflow-hidden">
       {/* Angled bands, softened for mobile */}
-      <div className="absolute -left-1/3 top-0 h-[120px] sm:h-[160px] w-[160%] -rotate-3 bg-[color:var(--brand)]/5 backdrop-blur-sm" />
-      <div className="absolute -left-1/3 top-8 sm:top-10 h-[100px] sm:h-[140px] w-[160%] -rotate-3 bg-[color:var(--gold)]/15" />
+      <div className="absolute left-1/2  top-0
+            h-[120px] sm:h-[160px] w-[120vw] sm:w-[140vw]
+            -rotate-3 bg-[color:var(--brand)]/5 backdrop-blur-sm" />
+      <div className="absolute left-1/2  top-8 sm:top-10
+            h-[100px] sm:h-[140px] w-[120vw] sm:w-[140vw]
+            -rotate-3 bg-[color:var(--gold)]/15" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 pt-14 sm:pt-16 pb-4">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-14 sm:pt-16 pb-4">
         <div className="flex flex-col items-center text-center">
           <div className="mb-4 flex flex-wrap items-center justify-center gap-2 text-[10px] sm:text-xs">
             <span className="rounded-full border border-[color:var(--gold)]/30 bg-[color:var(--gold)]/10 px-2.5 py-1 font-medium text-[color:var(--brand)]">
