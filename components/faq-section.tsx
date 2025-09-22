@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "When is possession for these luxury apartments in South Bopal?",
     answer:
-      "Possession expected by December 2026 with timely construction updates.",
+      "Possession expected by December 2028 with timely construction updates.",
   },
   {
     question: "Are home loans available for premium apartments in Ahmedabad?",
@@ -30,7 +30,7 @@ export function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Get answers to common questions about rrealtorStudio
+            Get answers to common questions about RREALTORSTUDIO
           </p>
         </div>
 

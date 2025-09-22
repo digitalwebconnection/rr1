@@ -1,7 +1,9 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
+import { useState } from "react";
 import { Button } from "@/components/ui/button"
+import EnquiryPopup from "@/components/EnquiryPopup"; // import your popup
 import {
   Home,
   Ruler,
@@ -60,7 +62,8 @@ const configurations = [
 ]
 
 /* ------------------ Component ------------------ */
-export default function InvestmentSection () {
+export default function InvestmentSection() {
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <section
       className="bg-white pt-20 pb-8"
@@ -133,11 +136,19 @@ export default function InvestmentSection () {
             Schedule a private site visit or request a personalized investment brochure.
           </p>
           <div className="mt-4 flex flex-col sm:flex-row justify-center gap-3">
-            <Button className="bg-[color:var(--brand)] text-white hover:brightness-110">
+            <Button
+              onClick={() => setShowPopup(true)}
+              size="lg"
+              className="rounded-full bg-[color:var(--brand)] px-6 py-2 text-white hover:bg-[color:var(--brand)]/90 transition"
+            >
               <Phone className="mr-2 h-4 w-4" />
-             <a href="tel:+917211161521">Request a Call</a>
+              <a href="">Request a Call Back</a>
             </Button>
-        
+
+
+            {/* Popup injection */}
+            {showPopup && <EnquiryPopup />}
+
           </div>
         </div>
       </div>

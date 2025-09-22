@@ -23,7 +23,7 @@ const LOCATION_POINTS = [
   {
     icon: School,
     title: "Renowned Schools Nearby",
-    description: "DPS, Shanti Asiatic & Eklavya within a 5–10 minute drive.",
+    description: "DPS, Shanti Asiatic & Eklavya within a 5–30 minute drive.",
   },
   {
     icon: Hospital,
@@ -33,18 +33,18 @@ const LOCATION_POINTS = [
   {
     icon: ShoppingBag,
     title: "Malls & Markets",
-    description: "Quick access to One Mall, Gulmohar Park & Bopal Central.",
+    description: "Quick access to Major Shopping Malls of Ahmedabad.",
   },
   {
     icon: Building2,
     title: "Business & IT Hubs",
-    description: "Near GIFT City, corporate zones & IT corridors.",
+    description: "Near Business, corporate zones & IT corridors.",
   },
   {
     icon: Plane,
     title: "International Airport",
     description:
-      "Sardar Vallabhbhai Patel Airport reachable within 25 minutes.",
+      "Sardar Vallabhbhai Patel Airport reachable within 50 minutes.",
   },
 ];
 

@@ -76,10 +76,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm opacity-60">
+        <div className="border-t flex md:flex-row flex-col justify-between border-background/20 mt-8 pt-8 text-center text-sm opacity-60">
           <p>
-            © 2025 RrealtorStudioLLP. All rights reserved. *Terms & Conditions Apply.
+            © 2025 RREALTORSTUDIOLLP. All rights reserved. *Terms & Conditions Apply.
           </p>
+          <p>RERA ID : AG/GJ/AHMEDABAD/AHMEDABADCITY/AUDA/AA02125/080828R1</p>
         </div>
       </div>
     </footer>

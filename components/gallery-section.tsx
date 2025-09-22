@@ -53,7 +53,7 @@ export function GallerySection() {
         {/* Gallery Header */}
         <div className="mb-10 text-center">
           <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/50 bg-[color:var(--brand)]/[.06] px-3 py-1 text-xs font-medium">
-            Curated by rrealtorStudio
+            Curated by RREALTORSTUDIO
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-balance">Gallery</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">

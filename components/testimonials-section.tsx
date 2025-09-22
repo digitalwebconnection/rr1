@@ -260,7 +260,7 @@ export function TestimonialsSection() {
             What Our Residents Say
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-balance text-[15px] sm:text-lg text-muted-foreground">
-            Genuine experiences from families who chose rrealtorStudio.
+            Genuine experiences from families who chose RREALTORSTUDIO.
           </p>
           <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-border bg-background px-3 sm:px-4 py-2 shadow-sm">
             <StarRating value={avg} />

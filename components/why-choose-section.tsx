@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import EnquiryPopup from "@/components/EnquiryPopup"; // import your popup
 import {
   Check,
   Crown,
@@ -51,9 +52,8 @@ function Reveal({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transform-gpu transition-all duration-700 ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-      }`}
+      className={`transform-gpu transition-all duration-700 ${visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+        }`}
     >
       {children}
     </div>
@@ -111,6 +111,7 @@ const COMP_ROWS = [
 /* =================== Main Section =================== */
 export function WhyChooseSection() {
   const [plan, setPlan] = useState<"4BHK" | "5BHK">("4BHK");
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <section
@@ -132,7 +133,7 @@ export function WhyChooseSection() {
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">
               Seven towers of luxury 4 & 5 BHK apartments.
             </h2>
-        
+
           </div>
         </Reveal>
 
@@ -176,17 +177,20 @@ export function WhyChooseSection() {
               <Reveal delay={120}>
                 <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                   <Button
+                   onClick={() => setShowPopup(true)}
                     size="lg"
-                    className="w-full bg-[color:var(--brand)] text-white sm:flex-1 hover:brightness-110"
+                    className="w-full rounded-full bg-[color:var(--brand)] text-white sm:flex-1 hover:brightness-110"
                   >
-                    <Phone className="mr-2 h-4 w-4" />
-                    <a href="tel:+917211161521">Request a Call Back</a>
+                      <Phone className="mr-2 h-4 w-4" />
+                      <a href="">Request a Call Back</a>
                   </Button>
-               
+
                 </div>
               </Reveal>
             </div>
           </div>
+          {/* Popup injection */}
+          {showPopup && <EnquiryPopup />}
 
           {/* Right Card */}
           <div className="lg:col-span-7">
@@ -199,11 +203,10 @@ export function WhyChooseSection() {
                       <button
                         key={key}
                         onClick={() => setPlan(key)}
-                        className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
-                          plan === key
+                        className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${plan === key
                             ? "bg-white shadow text-foreground"
                             : "text-muted-foreground hover:text-foreground"
-                        }`}
+                          }`}
                       >
                         {key}
                       </button>
@@ -212,7 +215,7 @@ export function WhyChooseSection() {
 
                   {/* Stats */}
                   <div className="grid gap-4 sm:grid-cols-3">
-                    <StatItem icon={Ruler} label="Carpet Area Starting  At" value={PLAN_DATA[plan].area} />
+                    <StatItem icon={Ruler} label="SB Area Starting  At" value={PLAN_DATA[plan].area} />
                     <StatItem icon={Wallet} label="Starting Price" value={PLAN_DATA[plan].priceFrom} />
                     <StatItem icon={LayoutGrid} label="Maintenance" value={PLAN_DATA[plan].maintenance} />
                   </div>
@@ -235,7 +238,7 @@ export function WhyChooseSection() {
                     <Chip icon={ShieldCheck}>Fully RERA Compliant</Chip>
                   </div>
 
-                  
+
                 </CardContent>
               </Card>
             </Reveal>
@@ -243,20 +246,20 @@ export function WhyChooseSection() {
         </div>
 
         {/* Privileges */}
-     <Reveal>
-  <div className="mt-14">
-    <h3 className="mb-4 text-xl font-semibold text-center">
-      Premium Customer Privileges
-    </h3>
+        <Reveal>
+          <div className="mt-14">
+            <h3 className="mb-4 text-xl font-semibold text-center">
+              Premium Customer Privileges
+            </h3>
 
-    {/* Outer container */}
-    <div className="group relative mx-auto max-w-7xl px-4">
-      {/* 
+            {/* Outer container */}
+            <div className="group relative mx-auto max-w-7xl px-4">
+              {/* 
         Mobile: horizontal scroll + snap 
         md+: wrap into rows with normal layout (no horizontal scroll)
       */}
-      <div
-        className="
+              <div
+                className="
           -mx-4 px-4 pb-3 flex
           md:flex-row flex-col gap-4
           overflow-x-auto snap-x snap-mandatory
@@ -264,34 +267,34 @@ export function WhyChooseSection() {
           [scrollbar-width:none] [-ms-overflow-style:none]
           [&::-webkit-scrollbar]:hidden
         "
-      >
-        {PRIVILEGES.map((p) => (
-          <div
-            key={p.title}
-            className="
+              >
+                {PRIVILEGES.map((p) => (
+                  <div
+                    key={p.title}
+                    className="
               snap-start shrink-0
               min-w-[260px] max-w-[320px]
               sm:min-w-[280px]
               md:shrink md:min-w-0 md:max-w-none md:basis-[calc(33.333%-1rem)]
             "
-          >
-            <Card className="relative h-full border border-[color:var(--brand)]/85 bg-[color:var(--brand)]/[.04] shadow-sm motion-safe:hover:scale-[1.05] transition">
-              <CardContent className="p-5">
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
-                    <p.icon className="h-5 w-5" />
+                  >
+                    <Card className="relative h-full border border-[color:var(--brand)]/85 bg-[color:var(--brand)]/[.04] shadow-sm motion-safe:hover:scale-[1.05] transition">
+                      <CardContent className="p-5">
+                        <div className="mb-3 flex items-center gap-3">
+                          <div className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--brand)]/10 text-[color:var(--brand)] ring-1 ring-[color:var(--brand)]/20">
+                            <p.icon className="h-5 w-5" />
+                          </div>
+                          <div className="text-base font-semibold">{p.title}</div>
+                        </div>
+                        <p className="text-sm text-muted-foreground">{p.text}</p>
+                      </CardContent>
+                    </Card>
                   </div>
-                  <div className="text-base font-semibold">{p.title}</div>
-                </div>
-                <p className="text-sm text-muted-foreground">{p.text}</p>
-              </CardContent>
-            </Card>
+                ))}
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</Reveal>
+        </Reveal>
 
 
         {/* Comparison */}
