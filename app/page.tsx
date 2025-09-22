@@ -28,7 +28,7 @@ export default function Home() {
       <FAQSection />
       <CTASection />
       <Footer />
-      {/* <EnquiryPopup/> */}
+      <EnquiryPopup/>
     </main>
   )
 }
