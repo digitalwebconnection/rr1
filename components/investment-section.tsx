@@ -47,8 +47,8 @@ const configurations = [
   },
   {
     type: "5 BHK",
-    area: "3545+ sq.ft",
-    price: "Starting from ₹2.23 CR (All Inclusive)",
+    area: "5185+ sq.ft",
+    price: "Starting from ₹3.25 CR (All Inclusive)",
     highlights: ["Extra lounge/family room", "Dual terrace options", "Penthouse-grade finishes"],
   },
   {

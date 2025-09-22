@@ -61,11 +61,11 @@ function Reveal({
 }
 
 /* =================== Data =================== */
-const KPIS = [
-  { label: "RERA ID", value: "AG/GJ/AHMEDABAD/AHMEDABAD CITY/AUDA/AA02125/080828R1" },
-  { label: "Configurations", value: "4 & 5 BHK" },
-  { label: "Towers / Floors", value: "7 Towers / 18 Floors" },
-];
+// const KPIS = [
+//   { label: "RERA ID", value: "AG/GJ/AHMEDABAD/AHMEDABAD CITY/AUDA/AA02125/080828R1" },
+//   { label: "Configurations", value: "4 & 5 BHK" },
+//   { label: "Towers / Floors", value: "7 Towers / 18 Floors" },
+// ];
 
 const PRIVILEGES = [
   { icon: Crown, title: "Concierge Services", text: "From maintenance to reservations." },
@@ -137,7 +137,7 @@ export function WhyChooseSection() {
         </Reveal>
 
         {/* KPIs */}
-        <Reveal>
+        {/* <Reveal>
           <div className="mx-auto mb-12 max-w-5xl rounded-2xl border border-white bg-white/80 p-4 shadow-sm">
             <div className=" grid-cols-1 gap-4 md:grid-cols-4   md:flex  justify-between">
               {KPIS.map((kpi, i) => (
@@ -150,7 +150,7 @@ export function WhyChooseSection() {
               ))}
             </div>
           </div>
-        </Reveal>
+        </Reveal> */}
 
         {/* Plan Comparison */}
         <div className="grid gap-8 lg:grid-cols-12">
