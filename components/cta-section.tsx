@@ -1,12 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+
+import EnquiryPopup from "@/components/EnquiryPopup";
 
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export function CTASection() {
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <section
       className="relative py-10 text-white"
@@ -58,8 +60,8 @@ export function CTASection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         {/* ===== Header + primary actions ===== */}
-        <div className="mx-auto mb-12 max-w-7xl text-center">
-          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/40 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur">
+        <div className="mx-auto mb-6 max-w-7xl text-center">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/80 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur">
             Final Call-to-Action
           </span>
           <h2 className="text-balance text-3xl  font-extrabold md:text-4xl">
@@ -68,27 +70,15 @@ export function CTASection() {
           <p className="text-balance mx-auto mt-3 text-xl opacity-90">
             Own premium apartments in South Bopal with skyline views today.
           </p>
-
-          <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            
-
-            <a href="tel:+917211161521">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/70 bg-white/5 px-8 py-6 text-lg text-white backdrop-blur hover:bg-white hover:text-[color:var(--brand)]"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Call: +91-7211161521
-              </Button>
-            </a>
+          <div className="mt-4 flex justify-center flex-col sm:flex-row gap-3">
+            <button
+              onClick={() => setShowPopup(true)}
+              className="rounded-full bg-[color:var(--brand)] px-6 py-2 text-white hover:bg-[color:var(--brand)]/90 transition"
+            >
+              Schedule a Site Visit
+            </button>
           </div>
-
-          {/* trust strip */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-8 text-xs text-white/80">
-            <span className="rounded-full border border-white/20 bg-white/10 px-8 py-1">4.9★ Rated by Homeowners</span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-8 py-1">120+ Site Visits Last Week</span>
-          </div>
+          {showPopup && <EnquiryPopup />}
         </div>
 
         {/* ===== Contact cards (now fully clickable) ===== */}

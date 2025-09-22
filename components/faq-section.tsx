@@ -12,13 +12,9 @@ const faqs = [
   {
     question: "What are the sizes for 4 & 5 BHK units?",
     answer:
-      " 4 BHK – 3545+ sq.ft | 5 BHK – 3545+ sq.ft.",
+      " 4 BHK – 3545+ sq.ft | 5 BHK – 5185+ sq.ft.",
   },
-  {
-    question: "Are these luxury flats near SG Highway RERA-approved?",
-    answer:
-      "Yes, The Masterpiece is a fully RERA-approved development.",
-  },
+  
 
 ]
 
@@ -29,7 +25,7 @@ export function FAQSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Frequently Asked Questions</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Get answers to common questions about rrealtor Studio
+            Get answers to common questions about rrealtorStudio
           </p>
         </div>
 

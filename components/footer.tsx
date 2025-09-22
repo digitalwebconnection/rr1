@@ -36,8 +36,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:opacity-100 transition-opacity">
-                  Pricing
+                <a href="#gallery" className="hover:opacity-100 transition-opacity">
+                  Gallery
                 </a>
               </li>
             </ul>
@@ -66,7 +66,6 @@ export function Footer() {
               <li>Terms & Conditions</li>
               <li>
                 <a
-                  href="/privacy"
                   className="hover:opacity-100 transition-opacity"
                 >
                   Privacy Policy
@@ -79,7 +78,7 @@ export function Footer() {
 
         <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm opacity-60">
           <p>
-            © 2025 rrealtor Studio. All rights reserved. *Terms & Conditions Apply.
+            © 2025 rrealtorStudio. All rights reserved. *Terms & Conditions Apply.
           </p>
         </div>
       </div>

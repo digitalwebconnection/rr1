@@ -225,27 +225,17 @@ export function Hero() {
       {/* ===== Content ===== */}
       <div className="container relative z-10 px-4">
         <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)]/30 bg-[color:var(--cream)]/10 px-3 py-1 text-xs font-semibold text-[color:var(--cream)] backdrop-blur">
-          RRealtorStudio • Ahmedabad
+          RRealtorStudio
         </div>
 
         {/* Staggered headline reveal */}
-        <h1 className="text-3xl md:text-5xl text-white font-bold">Luxury 4 & 5 BHK Apartments in South Bopal Ahmedabad</h1>
+        <h1 className="text-3xl md:text-6xl text-white font-bold">Luxury 4 & 5 BHK Apartments in South Bopal Ahmedabad</h1>
 
         <p className="mt-4 text-lg md:text-2xl text-[color:var(--cream)]/85 animate-fade-in-up max-w-7xl mx-auto">
         Live in spacious homes with stunning views and top-class lifestyle. A prime location offering comfort, style, and privacy.
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-[color:var(--cream)]/95 text-sm">
-          <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand)]/80 px-3 py-1 border border-[color:var(--gold)]/30 backdrop-blur-sm">
-            ⭐⭐⭐⭐⭐ 4.9/5 by 300+ homeowners
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand)]/80 px-3 py-1 border border-[color:var(--gold)]/30 backdrop-blur-sm">
-            120+ site visits last week
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand)]/80 px-3 py-1 border border-[color:var(--gold)]/30 backdrop-blur-sm">
-            70% inventory booked
-          </span>
-        </div>
+       
       </div>
 
       {/* Scroll progress (bottom bar) */}
