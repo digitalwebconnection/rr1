@@ -72,7 +72,7 @@ export default function EnquiryPopup() {
         setStatus("✅ Your enquiry has been sent!");
         (e.target as HTMLFormElement).reset();
         // Optionally auto-close after success on mobile
-        // setTimeout(() => setOpen(false), 1200);
+        setTimeout(() => setOpen(false), 1200);
       }
     } catch (err) {
       setStatus("❌ Failed to send: network error");
@@ -88,7 +88,7 @@ export default function EnquiryPopup() {
 
   return (
     <div
-      className="fixed w-80 inset-0 z-[9999] bg-black/60 backdrop-blur-sm px-4 py-4 sm:p-6"
+      className="fixed w-[320px] md:w-full inset-0 z-[9999] bg-black/60 backdrop-blur-sm px-4 py-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="enquiry-title"
