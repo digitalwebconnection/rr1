@@ -78,7 +78,7 @@ export function Footer() {
 
         <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm opacity-60">
           <p>
-            © 2025 rrealtorStudio. All rights reserved. *Terms & Conditions Apply.
+            © 2025 RrealtorStudioLLP. All rights reserved. *Terms & Conditions Apply.
           </p>
         </div>
       </div>

@@ -103,7 +103,7 @@ export default function EnquiryPopup() {
           className="relative w-full max-w-[300px] sm:max-w-md md:max-w-lg rounded-2xl bg-white shadow-2xl"
         >
           {/* Header */}
-          <div className="sticky top-0 z-10 flex items-center justify-between gap-2 border-b border-gray-100 px-4 py-3 sm:px-6 bg-white/90 backdrop-blur">
+          <div className="sticky top-0 z-10 flex items-center justify-between gap-2 border border-gray-100 px-4 py-3 sm:px-6 bg-white/90 backdrop-blur">
             <h2 id="enquiry-title" className="text-base sm:text-lg font-bold text-gray-900">
               Enquiry Form
             </h2>
