@@ -97,7 +97,7 @@ export default function EnquiryPopup() {
       // Use modern small viewport units to avoid iOS 100vh bugs
       style={{ minHeight: "120svh" }}
     >
-      <div className="mx-auto  min-h-[100svh] items-start sm:items-center ">
+      <div className="mx-auto flex  min-h-[100svh] items-start sm:items-center justify-center ">
         <div
           ref={dialogRef}
           className="relative w-full max-w-[300px] sm:max-w-md md:max-w-lg rounded-2xl bg-white shadow-2xl"
