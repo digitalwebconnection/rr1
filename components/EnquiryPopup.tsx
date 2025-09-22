@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 
 export default function EnquiryPopup() {
   const [open, setOpen] = useState(false);
@@ -92,7 +91,7 @@ export default function EnquiryPopup() {
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm text-start font-medium text-gray-700">Name</label>
+            <label className="block text-sm font-medium text-gray-700">Name</label>
             <input
               type="text"
               name="name"
@@ -105,7 +104,7 @@ export default function EnquiryPopup() {
           </div>
 
           <div>
-            <label className="block text-start text-sm font-medium text-gray-700">Email</label>
+            <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
               name="email"
@@ -118,7 +117,7 @@ export default function EnquiryPopup() {
           </div>
 
           <div>
-            <label className="block text-start text-sm font-medium text-gray-700">Phone</label>
+            <label className="block text-sm font-medium text-gray-700">Phone</label>
             <input
               type="tel"
               name="phone"
@@ -131,7 +130,7 @@ export default function EnquiryPopup() {
           </div>
 
           <div>
-            <label className="block text-start text-sm font-medium text-gray-700">Message</label>
+            <label className="block text-sm font-medium text-gray-700">Message</label>
             <textarea
               name="message"
               rows={4}

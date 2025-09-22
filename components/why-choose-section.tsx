@@ -257,8 +257,8 @@ export function WhyChooseSection() {
       */}
       <div
         className="
-          -mx-4 px-4 pb-3
-          flex gap-4
+          -mx-4 px-4 pb-3 flex
+          md:flex-row flex-col gap-4
           overflow-x-auto snap-x snap-mandatory
           md:overflow-visible md:flex-wrap md:justify-between
           [scrollbar-width:none] [-ms-overflow-style:none]
