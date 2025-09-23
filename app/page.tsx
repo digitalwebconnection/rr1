@@ -11,6 +11,7 @@ import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import EnquiryPopup from "@/components/EnquiryPopup"
+// import FileUploadForm from "@/components/FileUploadForm "
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <CTASection />
       <Footer />
       <EnquiryPopup/>
+      {/* <FileUploadForm/> */}
     </main>
   )
 }

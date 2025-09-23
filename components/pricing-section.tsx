@@ -28,7 +28,7 @@ export default function WhyInvest_V2() {
   }, [openForm]);
 
   return (
-    <section className="relative overflow-hidden text-[color:var(--ink)]">
+    <section id="pricing" className="relative overflow-hidden text-[color:var(--ink)]">
       <HeroRibbon />
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 pb-4">
